@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HandController : MonoBehaviour
 {
-    public List<Card> heldCards = new List<Card>();
+    public List<Card> heldCards = new();
 
     public Transform minPos, maxPos;
     public List<Vector3> cardPosition = new List<Vector3>();
@@ -35,7 +35,12 @@ public class HandController : MonoBehaviour
         {
             cardPosition.Add(minPos.position + (distanceBetwenPoints * i));
 
-            heldCards[i].transform.position = cardPosition[i];
+            //heldCards[i].transform.position = cardPosition[i];
+            //heldCards[i].transform.rotation = minPos.rotation;
+
+            heldCards[i].MoveToPoint(cardPosition[i], minPos.rotation);
+            heldCards[i].inHand = true;
+            heldCards[i].handPosition = i;
         }
     }
 }

@@ -15,4 +15,5 @@ MonoBehaviour:
   selectedType: 2
   attackPower: 6
   cardName: Matheus
-  cardSprite: {fileID: 21300000, guid: 1da9954506f9b074bb17fde34fb0277b, type: 3}
+  cardSprite: {fileID: 2100000, guid: 208608a14f691c24b8da8ad5cda73eef, type: 2}
+  cardElement: {fileID: 0}

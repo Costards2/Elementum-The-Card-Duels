@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Duda
   m_EditorClassIdentifier: 
   selectedType: 0
-  attackPower: 8000
+  attackPower: 4
   cardName: Andarilha da escada
-  cardSprite: {fileID: 21300000, guid: 6d742ba6b9414534da358cc2c85e2422, type: 3}
+  cardSprite: {fileID: 2100000, guid: 9ffb2665cc8ef854e94315f9d70665c0, type: 2}
+  cardElement: {fileID: 21300000, guid: 1da9954506f9b074bb17fde34fb0277b, type: 3}
