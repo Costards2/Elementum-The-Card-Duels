@@ -15,11 +15,6 @@ public class HandController : MonoBehaviour
         SetCardPositionsInHand();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void SetCardPositionsInHand()
     {
         cardPosition.Clear();

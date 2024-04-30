@@ -28,8 +28,21 @@ public class Card : MonoBehaviour
     public int handPosition;
 
     public HandController handController;
+
+    private bool isSelected;
+    private Collider theCollider;
+   
+    public LayerMask whatIsDeskTop;
     
     void Start()
+    {
+        SetUpCard();
+
+        handController = FindObjectOfType<HandController>(); 
+        theCollider = GetComponent<Collider>();
+    }
+
+    void SetUpCard()
     {
         attackPower = cardSO.attackPower;
         attackPowerString.text = cardSO.attackPower.ToString();
@@ -38,19 +51,33 @@ public class Card : MonoBehaviour
         cardElementImage.sprite = cardElementSprite;
 
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
-        
+
         Material[] materials = _meshRenderer.sharedMaterials;
         materials[1] = cardSO.cardSprite;
-        
-        _meshRenderer.sharedMaterials = materials;
 
-        handController = FindObjectOfType<HandController>();
+        _meshRenderer.sharedMaterials = materials;
     }
 
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, targetPoint, moveSpeed * Time.deltaTime);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+
+        if (isSelected)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+            if (Physics.Raycast(ray, out RaycastHit hit, 100f, whatIsDeskTop))
+            {
+                MoveToPoint(hit.point + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
+            }
+
+            if(Input.GetMouseButtonDown(1))
+            {
+                ReturnToHand();
+            }
+        }
     }
 
     public void MoveToPoint(Vector3 pointToMoveTo, Quaternion rotationToMatch)
@@ -73,5 +100,22 @@ public class Card : MonoBehaviour
         {
             MoveToPoint(handController.cardPosition[handPosition], handController.minPos.rotation);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        if (inHand)
+        {
+            isSelected = true;
+            theCollider.enabled = false;
+        }
+    }
+
+    public void ReturnToHand()
+    {
+        isSelected = false;
+        theCollider.enabled = true;
+
+        MoveToPoint(handController.cardPosition[handPosition],handController.minPos.rotation);
     }
 }
