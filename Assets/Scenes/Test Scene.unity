@@ -2015,6 +2015,10 @@ MonoBehaviour:
   whatIsDeskTop:
     serializedVersion: 2
     m_Bits: 64
+  whatIsPlacement:
+    serializedVersion: 2
+    m_Bits: 128
+  assignedPlace: {fileID: 0}
 --- !u!65 &1184563363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2276,6 +2280,10 @@ MonoBehaviour:
   whatIsDeskTop:
     serializedVersion: 2
     m_Bits: 64
+  whatIsPlacement:
+    serializedVersion: 2
+    m_Bits: 128
+  assignedPlace: {fileID: 0}
 --- !u!4 &1401443262
 Transform:
   m_ObjectHideFlags: 0
@@ -2487,6 +2495,10 @@ MonoBehaviour:
   whatIsDeskTop:
     serializedVersion: 2
     m_Bits: 64
+  whatIsPlacement:
+    serializedVersion: 2
+    m_Bits: 128
+  assignedPlace: {fileID: 0}
 --- !u!65 &1540883545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2748,6 +2760,10 @@ MonoBehaviour:
   whatIsDeskTop:
     serializedVersion: 2
     m_Bits: 64
+  whatIsPlacement:
+    serializedVersion: 2
+    m_Bits: 128
+  assignedPlace: {fileID: 0}
 --- !u!65 &1748059009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3320,6 +3336,10 @@ MonoBehaviour:
   whatIsDeskTop:
     serializedVersion: 2
     m_Bits: 64
+  whatIsPlacement:
+    serializedVersion: 2
+    m_Bits: 128
+  assignedPlace: {fileID: 0}
 --- !u!4 &1887992014
 Transform:
   m_ObjectHideFlags: 0
@@ -3559,8 +3579,8 @@ SceneRoots:
   - {fileID: 1791072268}
   - {fileID: 2145404563}
   - {fileID: 125022201}
-  - {fileID: 1748059007}
   - {fileID: 1401443262}
   - {fileID: 1887992014}
   - {fileID: 1184563361}
   - {fileID: 1540883543}
+  - {fileID: 1748059007}
