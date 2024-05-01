@@ -46,7 +46,7 @@ public class Card : MonoBehaviour
         theCollider = GetComponent<Collider>();
     }
 
-    void SetUpCard()
+    public void SetUpCard()
     {
         attackPower = cardSO.attackPower;
         attackPowerString.text = cardSO.attackPower.ToString();
