@@ -392,7 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84443a27a9eae284c833ac0710b28358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardSO: {fileID: 11400000, guid: 3feb9e396378b8f438c104d3c2d0f21c, type: 2}
+  cardSO: {fileID: 0}
+  isPlayer: 1
   selectedType: 0
   attackPower: 0
   attackPowerString: {fileID: 4743539350837643423}

@@ -8,6 +8,8 @@ public class Card : MonoBehaviour
 {
     public CardScriptableObjects cardSO;
 
+    public bool isPlayer;
+
     public enum Type { Fire, Water, Plant }
     public Type selectedType;
 
@@ -40,6 +42,13 @@ public class Card : MonoBehaviour
 
     void Start()
     {
+        //Making the enemy card stay on Its position
+        if(targetPoint == Vector3.zero)
+        {
+            targetPoint = this.transform.position;
+            targetRotation = this.transform.rotation;
+        }
+
         SetUpCard();
 
         handController = FindObjectOfType<HandController>(); 
@@ -84,6 +93,7 @@ public class Card : MonoBehaviour
 
                         handController.RemoveCardFromHand(this);
 
+                        //Automatically advance turn 
                         BattleController.instance.AdvanceTurn();
                     }
                     else
@@ -125,7 +135,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(inHand)
+        if(inHand && isPlayer)
         {
             MoveToPoint(handController.cardPosition[handPosition] + new Vector3(0f, 0.25f, .5f), Quaternion.identity);
         }
@@ -133,7 +143,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (inHand)
+        if (inHand && isPlayer)
         {
             MoveToPoint(handController.cardPosition[handPosition], handController.minPos.rotation);
         }
@@ -141,7 +151,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive)
+        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer)
         {
             isSelected = true;
             theCollider.enabled = false;

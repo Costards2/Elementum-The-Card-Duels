@@ -52,9 +52,10 @@ public class BattleController : MonoBehaviour
                 break;
 
             case TurnOrder.playerCardAttacks:
-                
-                Debug.Log("Skipping playerCardAttacks");
+
+                //Debug.Log("Skipping playerCardAttacks");
                 //AdvanceTurn();
+                CardPointController.instace.PlayerAttack();
 
                 break;
 
