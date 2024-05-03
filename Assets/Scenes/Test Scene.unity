@@ -589,6 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a5aad352058104683402d3f3263291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentFase: 0
+  cardsToDrawPerTurn: 1
   startingCardsAmount: 5
 --- !u!4 &917015347
 Transform:

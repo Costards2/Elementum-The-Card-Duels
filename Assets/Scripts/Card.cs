@@ -46,22 +46,6 @@ public class Card : MonoBehaviour
         theCollider = GetComponent<Collider>();
     }
 
-    public void SetUpCard()
-    {
-        attackPower = cardSO.attackPower;
-        attackPowerString.text = cardSO.attackPower.ToString();
-
-        cardElementSprite = cardSO.cardElement;
-        cardElementImage.sprite = cardElementSprite;
-
-        _meshRenderer = GetComponentInChildren<MeshRenderer>();
-
-        Material[] materials = _meshRenderer.sharedMaterials;
-        materials[1] = cardSO.cardSprite;
-
-        _meshRenderer.sharedMaterials = materials;
-    }
-
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, targetPoint, moveSpeed * Time.deltaTime);
@@ -82,7 +66,7 @@ public class Card : MonoBehaviour
                 ReturnToHand();
             }
 
-            if (Input.GetMouseButtonDown(0) && !justPressed)
+            if (Input.GetMouseButtonDown(0) && !justPressed && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive)
             {
                 if (Physics.Raycast(ray, out hit, 100f, whatIsPlacement))
                 {
@@ -99,6 +83,8 @@ public class Card : MonoBehaviour
                         isSelected = false;
 
                         handController.RemoveCardFromHand(this);
+
+                        BattleController.instance.AdvanceTurn();
                     }
                     else
                     {
@@ -113,6 +99,22 @@ public class Card : MonoBehaviour
         }
 
         justPressed = false;
+    }
+
+    public void SetUpCard()
+    {
+        attackPower = cardSO.attackPower;
+        attackPowerString.text = cardSO.attackPower.ToString();
+
+        cardElementSprite = cardSO.cardElement;
+        cardElementImage.sprite = cardElementSprite;
+
+        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        Material[] materials = _meshRenderer.sharedMaterials;
+        materials[1] = cardSO.cardSprite;
+
+        _meshRenderer.sharedMaterials = materials;
     }
 
     public void MoveToPoint(Vector3 pointToMoveTo, Quaternion rotationToMatch)
@@ -139,7 +141,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (inHand)
+        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive)
         {
             isSelected = true;
             theCollider.enabled = false;

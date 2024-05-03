@@ -6,11 +6,6 @@ public class DeckController : MonoBehaviour
 {
     public static DeckController instance;
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
     public List<CardScriptableObjects> deckToUse = new List<CardScriptableObjects>();
 
     private List<CardScriptableObjects> activeCards = new List<CardScriptableObjects>();
@@ -19,6 +14,11 @@ public class DeckController : MonoBehaviour
 
     public float waitBetweenDrawingCards = .25f;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         SetUpDeck();
@@ -26,10 +26,10 @@ public class DeckController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T)) 
-        {
-            DrawnCardToHand();
-        }
+        //if(Input.GetKeyDown(KeyCode.T)) 
+        //{
+        //    DrawnCardToHand();
+        //}
     }
 
     public void SetUpDeck()
