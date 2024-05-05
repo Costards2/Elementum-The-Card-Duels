@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051eefbec681ecc4cb4a12396f4d750b, type: 3}
   m_Name: Duda
   m_EditorClassIdentifier: 
-  selectedType: 0
+  selectedType: 1
   attackPower: 6
   cardName: Andarilha da escada
   cardSprite: {fileID: 2100000, guid: 9ffb2665cc8ef854e94315f9d70665c0, type: 2}

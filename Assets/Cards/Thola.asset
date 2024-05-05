@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051eefbec681ecc4cb4a12396f4d750b, type: 3}
   m_Name: Thola
   m_EditorClassIdentifier: 
-  selectedType: 2
+  selectedType: 0
   attackPower: 6
   cardName: Matheus
   cardSprite: {fileID: 2100000, guid: 208608a14f691c24b8da8ad5cda73eef, type: 2}

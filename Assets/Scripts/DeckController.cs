@@ -24,14 +24,6 @@ public class DeckController : MonoBehaviour
         SetUpDeck();
     }
 
-    void Update()
-    {
-        //if(Input.GetKeyDown(KeyCode.T)) 
-        //{
-        //    DrawnCardToHand();
-        //}
-    }
-
     public void SetUpDeck()
     {
         activeCards.Clear();

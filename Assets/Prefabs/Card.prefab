@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1756734554089818404}
+  - component: {fileID: 4418944850607812393}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -108,6 +109,27 @@ Transform:
   - {fileID: 8712830919359530522}
   m_Father: {fileID: 8431498612225835293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4418944850607812393
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448749537486669980}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5915328dbe16ec4aa35e8bda9ffaeb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5771715531426984507
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84443a27a9eae284c833ac0710b28358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardSO: {fileID: 0}
+  cardSO: {fileID: 11400000, guid: 8e604407fc098e648a27b38fd185fd78, type: 2}
   isPlayer: 1
   selectedType: 0
   attackPower: 0
@@ -411,6 +433,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   assignedPlace: {fileID: 0}
+  enemyCard: {fileID: 0}
+  anim: {fileID: 4418944850607812393}
 --- !u!65 &4196442570506260347
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -7,12 +7,17 @@ public class BattleController : MonoBehaviour
 {
     public static BattleController instance;
     
-    public enum TurnOrder { playerActive, playerCardAttacks, enemyActive, enemyCardAttacks }
+    public enum TurnOrder { playerActive, CardsAttack, enemyActive }
     public TurnOrder currentFase;
 
     public int cardsToDrawPerTurn = 1;
 
     public int startingCardsAmount = 5;
+
+    public Transform discardPoint;
+
+    public int playerPoints = 0;
+    public int enemyPoints = 0;
 
     private void Awake()
     {
@@ -31,7 +36,7 @@ public class BattleController : MonoBehaviour
             AdvanceTurn();
         }
 
-        //Debug.Log((int)currentFase);
+        Debug.Log(currentFase);
     }
 
     public void AdvanceTurn()
@@ -47,28 +52,21 @@ public class BattleController : MonoBehaviour
         {
             case TurnOrder.playerActive:
 
-                DeckController.instance.DrawMutipleCards(cardsToDrawPerTurn); // or you can use: DeckController.instance.DrawnCardToHand();
-
-                break;
-
-            case TurnOrder.playerCardAttacks:
-
-                //Debug.Log("Skipping playerCardAttacks");
-                //AdvanceTurn();
-                CardPointController.instace.PlayerAttack();
+                StartCoroutine(CardDrawDelay());//or you can use: DeckController.instance.DrawnCardToHand();
 
                 break;
 
             case TurnOrder.enemyActive:
 
-                Debug.Log("Skipping enemyActive");
-                AdvanceTurn();
+                Debug.Log("Enemy Place Card");
+                //AdvanceTurn();
 
                 break;
 
-            case TurnOrder.enemyCardAttacks:
-
-                Debug.Log("Skipping enemyCardAttacks");
+            case TurnOrder.CardsAttack:
+                
+                Debug.Log("Cards Attack");
+                CardPointController.instace.PlayerAttack();   
                 AdvanceTurn();
 
                 break;
@@ -79,10 +77,28 @@ public class BattleController : MonoBehaviour
                 
                 break;
         }
+
+        UI.instance.UpdatePointsUI();
     }
 
     public void EndPlayerTurn()
     {
         AdvanceTurn();
+    }
+
+    IEnumerator CardDrawDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        DeckController.instance.DrawMutipleCards(cardsToDrawPerTurn);
+    }
+
+    public void UpdatePlayerPoints()
+    {
+        playerPoints++;
+    }
+
+    public void UpdateEnemyPoints()
+    {
+        enemyPoints++;
     }
 }

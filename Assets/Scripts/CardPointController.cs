@@ -14,16 +14,6 @@ public class CardPointController : MonoBehaviour
         instace = this;
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void PlayerAttack()
     {
         StartCoroutine(PlayerAttackCo());
@@ -37,7 +27,8 @@ public class CardPointController : MonoBehaviour
         {
             if (playerCardPoint[i].activeCard != null && enemyCardPoint[i].activeCard != null)
             {
-                //Attack
+                playerCardPoint[i].activeCard.AttackCard(enemyCardPoint[i].activeCard.attackPower, enemyCardPoint[i].activeCard.selectedType, enemyCardPoint[i].activeCard.gameObject);
+                //maybe place the attack trigger anim here
             }
 
             yield return new WaitForSeconds(timeBetweenAttacks);

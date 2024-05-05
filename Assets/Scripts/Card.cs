@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor;
+using System;
 
 public class Card : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Card : MonoBehaviour
 
     public enum Type { Fire, Water, Plant }
     public Type selectedType;
+    int scripatableObjectType;
 
     public int attackPower;
     public TMP_Text attackPowerString;
@@ -39,6 +42,10 @@ public class Card : MonoBehaviour
     private bool justPressed;
 
     public CardPlacePoint assignedPlace;
+
+    public Card enemyCard;
+
+    public Animator anim;
 
     void Start()
     {
@@ -116,6 +123,26 @@ public class Card : MonoBehaviour
         attackPower = cardSO.attackPower;
         attackPowerString.text = cardSO.attackPower.ToString();
 
+        scripatableObjectType = Convert.ToInt32(cardSO.selectedType);
+        switch (scripatableObjectType)
+        {
+            case 0:
+
+                selectedType = Type.Fire; 
+                break;
+                
+            case 1:
+
+                selectedType = Type.Water; 
+                break;
+
+            case 2:
+
+                selectedType = Type.Plant; 
+                break;
+        }
+
+
         cardElementSprite = cardSO.cardElement;
         cardElementImage.sprite = cardElementSprite;
 
@@ -165,5 +192,83 @@ public class Card : MonoBehaviour
         theCollider.enabled = true;
 
         MoveToPoint(handController.cardPosition[handPosition],handController.minPos.rotation);
+    }
+
+    public void AttackCard(int powerAmount, Type element, GameObject card) // Add a better "win controller" and Create a Battle turn Controller because all the win or loose turn code is done in the card script 
+    {
+        if(selectedType == element)
+        {
+           if(this.attackPower > powerAmount) 
+           {
+                Debug.Log("Player Point");
+                BattleController.instance.UpdatePlayerPoints();
+           } 
+           else if(this.attackPower < powerAmount)
+           {
+                Debug.Log("Enemy Point");
+                BattleController.instance.UpdateEnemyPoints();
+           }
+           else
+           {
+                Debug.Log("Tie");
+           }
+        }
+        else if(selectedType != element) 
+        { 
+            if(selectedType == Type.Fire && element == Type.Water)
+            {
+                Debug.Log("Enemy Point");
+                BattleController.instance.UpdateEnemyPoints();
+            }
+            else if(selectedType == Type.Water && element == Type.Plant)
+            {
+                Debug.Log("Enemy Point");
+                BattleController.instance.UpdateEnemyPoints();
+            }
+            else if (selectedType == Type.Plant && element == Type.Fire)
+            {
+                Debug.Log("Enemy Point");
+                BattleController.instance.UpdateEnemyPoints();
+            }
+            else if (selectedType == Type.Fire && element == Type.Plant)
+            {
+                Debug.Log("Player Point");
+                BattleController.instance.UpdatePlayerPoints();
+            }
+            else if (selectedType == Type.Water && element == Type.Fire)
+            {
+                Debug.Log("Player Point");
+                BattleController.instance.UpdatePlayerPoints();
+            }
+            else if (selectedType == Type.Plant && element == Type.Water)
+            {
+                Debug.Log("Player Point");
+                BattleController.instance.UpdatePlayerPoints();
+            }
+        }
+
+        enemyCard = card.GetComponent<Card>();
+
+        StartCoroutine(WaitToAttackAndDiscard());
+
+        enemyCard.assignedPlace = null;
+        Destroy(card, 5f);
+        assignedPlace.activeCard = null;
+        Destroy(gameObject, 5f);
+    }
+
+    IEnumerator WaitToAttackAndDiscard()
+    {
+        yield return new WaitForSeconds(.25f);
+
+        anim.SetTrigger("Attack");
+        enemyCard.anim.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(2);
+
+        MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
+        anim.SetTrigger("Jump");
+        enemyCard.MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
+        enemyCard.anim.SetTrigger("Jump");
     }
 }
