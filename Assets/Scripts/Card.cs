@@ -194,20 +194,41 @@ public class Card : MonoBehaviour
         MoveToPoint(handController.cardPosition[handPosition],handController.minPos.rotation);
     }
 
-    public void AttackCard(int powerAmount, Type element, GameObject card) // Add a better "win controller" and Create a Battle turn Controller because all the win or loose turn code is done in the card script 
+    public void AttackCard(int powerAmount, Type element, GameObject card) // Add a better "win controller", Create a Battle turn Controller because all the win or loose turn code is done in the card script and change some of this Ifs for swicth
     {
         if(selectedType == element)
         {
            if(this.attackPower > powerAmount) 
            {
-                Debug.Log("Player Point");
-                BattleController.instance.UpdatePlayerPoints();
+                if (selectedType == Type.Fire)
+                {
+                    BattleController.instance.UpdatePlayerPointFire();
+                }
+                else if (selectedType == Type.Water)
+                {
+                    BattleController.instance.UpdatePlayerPointWater();
+                }
+                else if (selectedType == Type.Plant)
+                {
+                    BattleController.instance.UpdatePlayerPointPlant();
+                }
            } 
            else if(this.attackPower < powerAmount)
            {
-                Debug.Log("Enemy Point");
-                BattleController.instance.UpdateEnemyPoints();
-           }
+                if (element == Type.Water)
+                {
+
+                    BattleController.instance.UpdateEnemyPointWater();
+                }
+                else if (element == Type.Plant)
+                {
+                    BattleController.instance.UpdateEnemyPointPlant();
+                }
+                else if (element == Type.Fire)
+                {
+                    BattleController.instance.UpdateEnemyPointFire();
+                }
+            }
            else
            {
                 Debug.Log("Tie");
@@ -217,33 +238,27 @@ public class Card : MonoBehaviour
         { 
             if(selectedType == Type.Fire && element == Type.Water)
             {
-                Debug.Log("Enemy Point");
-                BattleController.instance.UpdateEnemyPoints();
+                BattleController.instance.UpdateEnemyPointWater();
             }
             else if(selectedType == Type.Water && element == Type.Plant)
             {
-                Debug.Log("Enemy Point");
-                BattleController.instance.UpdateEnemyPoints();
+                BattleController.instance.UpdateEnemyPointPlant();
             }
             else if (selectedType == Type.Plant && element == Type.Fire)
             {
-                Debug.Log("Enemy Point");
-                BattleController.instance.UpdateEnemyPoints();
+                BattleController.instance.UpdateEnemyPointFire();
             }
             else if (selectedType == Type.Fire && element == Type.Plant)
             {
-                Debug.Log("Player Point");
-                BattleController.instance.UpdatePlayerPoints();
+                BattleController.instance.UpdatePlayerPointFire();
             }
             else if (selectedType == Type.Water && element == Type.Fire)
             {
-                Debug.Log("Player Point");
-                BattleController.instance.UpdatePlayerPoints();
+                BattleController.instance.UpdatePlayerPointWater();
             }
             else if (selectedType == Type.Plant && element == Type.Water)
             {
-                Debug.Log("Player Point");
-                BattleController.instance.UpdatePlayerPoints();
+                BattleController.instance.UpdatePlayerPointPlant();
             }
         }
 

@@ -16,8 +16,13 @@ public class BattleController : MonoBehaviour
 
     public Transform discardPoint;
 
-    public int playerPoints = 0;
-    public int enemyPoints = 0;
+    public int playerPointFire = 0;
+    public int playerPointWater = 0;
+    public int playerPointPlant = 0;
+
+    public int enemyPointFire = 0;
+    public int enemyPointWater = 0;
+    public int enemyPointPlant = 0;
 
     private void Awake()
     {
@@ -92,13 +97,29 @@ public class BattleController : MonoBehaviour
         DeckController.instance.DrawMutipleCards(cardsToDrawPerTurn);
     }
 
-    public void UpdatePlayerPoints()
+    public void UpdatePlayerPointFire()
     {
-        playerPoints++;
+        playerPointFire++;
+    }
+    public void UpdatePlayerPointWater()
+    {
+        playerPointWater++;
+    }
+    public void UpdatePlayerPointPlant()
+    {
+        playerPointPlant++;
     }
 
-    public void UpdateEnemyPoints()
+    public void UpdateEnemyPointFire()
     {
-        enemyPoints++;
+        enemyPointFire++;
+    }
+    public void UpdateEnemyPointWater()
+    {
+        enemyPointWater++;
+    }
+    public void UpdateEnemyPointPlant()
+    {
+        enemyPointPlant++;
     }
 }
