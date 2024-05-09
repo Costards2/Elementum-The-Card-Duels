@@ -63,15 +63,13 @@ public class BattleController : MonoBehaviour
 
             case TurnOrder.enemyActive:
 
-                Debug.Log("Enemy Place Card");
-                //AdvanceTurn();
+                EnemyController.instance.StartAction();
 
                 break;
 
             case TurnOrder.CardsAttack:
                 
-                Debug.Log("Cards Attack");
-                CardPointController.instace.PlayerAttack();   
+                StartCoroutine(CardAttackDelay());  
                 AdvanceTurn();
 
                 break;
@@ -121,5 +119,11 @@ public class BattleController : MonoBehaviour
     public void UpdateEnemyPointPlant()
     {
         enemyPointPlant++;
+    }
+
+    IEnumerator CardAttackDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+        CardPointController.instace.PlayerAttack();
     }
 }

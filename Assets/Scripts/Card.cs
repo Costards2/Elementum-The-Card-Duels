@@ -93,7 +93,9 @@ public class Card : MonoBehaviour
                         selectedPoint.activeCard = this;
                         assignedPlace = selectedPoint;
 
-                        MoveToPoint(selectedPoint.transform.position, Quaternion.identity);
+                        MoveToPoint(selectedPoint.transform.position,Quaternion.identity); // Quaternion.Euler(0, 0.04f, 180f), This way a make the card Rotate preventing the enemy seeing it, however i decided to do all of this in the Animator (I regret It a little) 
+
+                        anim.SetTrigger("CardPlaced");
 
                         inHand = false;
                         isSelected = false;
@@ -279,7 +281,12 @@ public class Card : MonoBehaviour
         anim.SetTrigger("Attack");
         enemyCard.anim.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.3f); 
+
+        anim.SetTrigger("AfterAttack"); //insteaf of using an after attack I could have made it all in attack but i decided to do this way to "play" a little more
+        enemyCard.anim.SetTrigger("AfterAttack");
+
+        yield return new WaitForSeconds(1f);
 
         MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
         anim.SetTrigger("Jump");
