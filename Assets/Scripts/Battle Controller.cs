@@ -7,7 +7,7 @@ public class BattleController : MonoBehaviour
 {
     public static BattleController instance;
     
-    public enum TurnOrder { playerActive, CardsAttack, enemyActive }
+    public enum TurnOrder { playerActive, enemyActive , CardsAttack }
     public TurnOrder currentFase;
 
     public int cardsToDrawPerTurn = 1;
@@ -36,10 +36,10 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            AdvanceTurn();
-        }
+        //if(Input.GetKeyDown(KeyCode.U))
+        //{
+        //    AdvanceTurn();
+        //}
 
         Debug.Log(currentFase);
     }
@@ -70,7 +70,6 @@ public class BattleController : MonoBehaviour
             case TurnOrder.CardsAttack:
                 
                 StartCoroutine(CardAttackDelay());  
-                AdvanceTurn();
 
                 break;
 
@@ -82,11 +81,6 @@ public class BattleController : MonoBehaviour
         }
 
         UI.instance.UpdatePointsUI();
-    }
-
-    public void EndPlayerTurn()
-    {
-        AdvanceTurn();
     }
 
     IEnumerator CardDrawDelay()
@@ -123,6 +117,7 @@ public class BattleController : MonoBehaviour
 
     IEnumerator CardAttackDelay()
     {
+        Debug.Log("CardAttackDelay");
         yield return new WaitForSeconds(.5f);
         CardPointController.instace.PlayerAttack();
     }

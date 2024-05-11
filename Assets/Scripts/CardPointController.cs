@@ -29,6 +29,8 @@ public class CardPointController : MonoBehaviour
             {
                 playerCardPoint[i].activeCard.AttackCard(enemyCardPoint[i].activeCard.attackPower, enemyCardPoint[i].activeCard.selectedType, enemyCardPoint[i].activeCard.gameObject);
                 //maybe place the attack trigger anim here
+
+                Debug.Log("PlayerAttackCO");
             }
 
             yield return new WaitForSeconds(timeBetweenAttacks);

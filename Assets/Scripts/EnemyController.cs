@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -22,11 +23,6 @@ public class EnemyController : MonoBehaviour
         SetUpDeck();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void SetUpDeck()
     {
         activeCards.Clear();
@@ -35,6 +31,7 @@ public class EnemyController : MonoBehaviour
         tempDeck.AddRange(deckToUse);
 
         int interations = 0;
+
         while (tempDeck.Count > 0 && interations < 500)
         {
             int selected = Random.Range(0, tempDeck.Count);
@@ -58,6 +55,29 @@ public class EnemyController : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
 
-        //BattleController.instance.AdvanceTurn();
+        List<CardPlacePoint> cardPoint = new List<CardPlacePoint>();
+        cardPoint.AddRange(CardPointController.instace.enemyCardPoint);
+
+        CardPlacePoint selectedPoint = cardPoint[0];
+       
+
+        if (selectedPoint.activeCard == null)
+        {
+
+            Card newCard = Instantiate(cardToSpawn, cardSpawnPoint.position, cardSpawnPoint.rotation);
+
+            newCard.anim.SetTrigger("CardPlaced");
+            
+            newCard.cardSO = activeCards[0];
+            activeCards.RemoveAt(0);
+            newCard.SetUpCard();
+            newCard.MoveToPoint(selectedPoint.transform.position, selectedPoint.transform.rotation);
+
+            selectedPoint.activeCard = newCard;
+            newCard.assignedPlace = selectedPoint;
+        }
+
+        yield return new WaitForSeconds(.5f);
+        BattleController.instance.AdvanceTurn();
     }
 }
