@@ -13,6 +13,9 @@ public class EnemyController : MonoBehaviour
     public Card cardToSpawn;
     public Transform cardSpawnPoint;
 
+    public enum AIType {Basic, Advanced}
+    public AIType enemyAIType = AIType.Basic;
+
     private void Awake()
     {
         instance = this; 
@@ -34,6 +37,7 @@ public class EnemyController : MonoBehaviour
 
         while (tempDeck.Count > 0 && interations < 500)
         {
+            Debug.Log("While");
             int selected = Random.Range(0, tempDeck.Count);
             activeCards.Add(tempDeck[selected]);
             tempDeck.RemoveAt(selected);
@@ -53,29 +57,40 @@ public class EnemyController : MonoBehaviour
             //Bring More Cards if the enemy ran out of them (I will probably remove this)
             SetUpDeck();
         }
+
         yield return new WaitForSeconds(.5f);
 
         List<CardPlacePoint> cardPoint = new List<CardPlacePoint>();
         cardPoint.AddRange(CardPointController.instace.enemyCardPoint);
 
         CardPlacePoint selectedPoint = cardPoint[0];
-       
 
-        if (selectedPoint.activeCard == null)
+        switch (enemyAIType)
         {
+            case AIType.Basic:
 
-            Card newCard = Instantiate(cardToSpawn, cardSpawnPoint.position, cardSpawnPoint.rotation);
+                if (selectedPoint.activeCard == null)
+                {
 
-            newCard.anim.SetTrigger("CardPlaced");
-            
-            newCard.cardSO = activeCards[0];
-            activeCards.RemoveAt(0);
-            newCard.SetUpCard();
-            newCard.MoveToPoint(selectedPoint.transform.position, selectedPoint.transform.rotation);
+                    Card newCard = Instantiate(cardToSpawn, cardSpawnPoint.position, cardSpawnPoint.rotation);
 
-            selectedPoint.activeCard = newCard;
-            newCard.assignedPlace = selectedPoint;
-        }
+                    newCard.anim.SetTrigger("CardPlaced");
+
+                    newCard.cardSO = activeCards[0];
+                    activeCards.RemoveAt(0);
+                    newCard.SetUpCard();
+                    newCard.MoveToPoint(selectedPoint.transform.position, selectedPoint.transform.rotation);
+
+                    selectedPoint.activeCard = newCard;
+                    newCard.assignedPlace = selectedPoint;
+                }
+
+                break;
+
+            case AIType.Advanced:
+
+                break;
+        } 
 
         yield return new WaitForSeconds(.5f);
         BattleController.instance.AdvanceTurn();

@@ -56,7 +56,7 @@ public class UI : MonoBehaviour
 
             case 3:
 
-                playerUiPoints[3].SetActive(true);
+                playerUiPoints[2].SetActive(true);
 
                 break;
         }
@@ -64,19 +64,19 @@ public class UI : MonoBehaviour
         {
             case 1:
 
-                playerUiPoints[4].SetActive(true);
+                playerUiPoints[3].SetActive(true);
 
                 break;
 
             case 2:
 
-                playerUiPoints[5].SetActive(true);
+                playerUiPoints[4].SetActive(true);
 
                 break;
 
             case 3:
 
-                playerUiPoints[6].SetActive(true);
+                playerUiPoints[5].SetActive(true);
 
                 break;
         }
@@ -84,19 +84,19 @@ public class UI : MonoBehaviour
         {
             case 1:
 
-                playerUiPoints[7].SetActive(true);
+                playerUiPoints[6].SetActive(true);
 
                 break;
 
             case 2:
 
-                playerUiPoints[8].SetActive(true);
+                playerUiPoints[7].SetActive(true);
 
                 break;
 
             case 3:
 
-                playerUiPoints[9].SetActive(true);
+                playerUiPoints[8].SetActive(true);
 
                 break;
         }

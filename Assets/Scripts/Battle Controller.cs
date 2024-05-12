@@ -41,7 +41,7 @@ public class BattleController : MonoBehaviour
         //    AdvanceTurn();
         //}
 
-        Debug.Log(currentFase);
+        //Debug.Log(currentFase);
     }
 
     public void AdvanceTurn()
@@ -80,7 +80,7 @@ public class BattleController : MonoBehaviour
                 break;
         }
 
-        UI.instance.UpdatePointsUI();
+        //UI.instance.UpdatePointsUI();
     }
 
     IEnumerator CardDrawDelay()

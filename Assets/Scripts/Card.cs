@@ -46,11 +46,14 @@ public class Card : MonoBehaviour
     public Card enemyCard;
 
     public Animator anim;
+    private bool finished;
 
     void Start()
     {
+        finished = true;
+
         //Making the enemy card stay on Its position
-        if(targetPoint == Vector3.zero)
+        if (targetPoint == Vector3.zero)
         {
             targetPoint = this.transform.position;
             targetRotation = this.transform.rotation;
@@ -77,12 +80,12 @@ public class Card : MonoBehaviour
                 MoveToPoint(hit.point + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
             }
 
-            if(Input.GetMouseButtonDown(1))
+            if(Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(0))
             {
                 ReturnToHand();
             }
 
-            if (Input.GetMouseButtonDown(0) && !justPressed && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive)
+            if (Input.GetMouseButtonUp(0) && !justPressed && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive)
             {
                 if (Physics.Raycast(ray, out hit, 100f, whatIsPlacement))
                 {
@@ -178,9 +181,19 @@ public class Card : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    //private void OnMouseDown()
+    //{
+    //    if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer && finished)
+    //    {
+    //        isSelected = true;
+    //        theCollider.enabled = false;
+    //        justPressed = true;
+    //    }
+    //}
+
+    private void OnMouseDrag()
     {
-        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer)
+        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer && finished)
         {
             isSelected = true;
             theCollider.enabled = false;
@@ -219,7 +232,6 @@ public class Card : MonoBehaviour
            {
                 if (element == Type.Water)
                 {
-
                     BattleController.instance.UpdateEnemyPointWater();
                 }
                 else if (element == Type.Plant)
@@ -268,20 +280,25 @@ public class Card : MonoBehaviour
 
         StartCoroutine(WaitToAttackAndDiscard());
 
-        enemyCard.assignedPlace = null;
         Destroy(card, 5f);
-        assignedPlace.activeCard = null;
         Destroy(gameObject, 5f);
     }
 
     IEnumerator WaitToAttackAndDiscard()
     {
+     
+        finished = false;
+
         yield return new WaitForSeconds(.25f);
 
         anim.SetTrigger("Attack");
         enemyCard.anim.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(1.3f); 
+        Debug.Log("Cards Attacked");
+
+        yield return new WaitForSeconds(1.3f);
+
+        UI.instance.UpdatePointsUI();
 
         anim.SetTrigger("AfterAttack"); //insteaf of using an after attack I could have made it all in attack but i decided to do this way to "play" a little more
         enemyCard.anim.SetTrigger("AfterAttack");
@@ -292,5 +309,11 @@ public class Card : MonoBehaviour
         anim.SetTrigger("Jump");
         enemyCard.MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
         enemyCard.anim.SetTrigger("Jump");
+
+        finished = true;
+
+        enemyCard.assignedPlace = null;
+        assignedPlace.activeCard = null;
     }
+
 }
