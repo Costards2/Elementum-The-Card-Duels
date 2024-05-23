@@ -46,12 +46,9 @@ public class Card : MonoBehaviour
     public Card enemyCard;
 
     public Animator anim;
-    private bool finished;
 
     void Start()
     {
-        finished = true;
-
         //Making the enemy card stay on Its position
         if (targetPoint == Vector3.zero)
         {
@@ -80,12 +77,12 @@ public class Card : MonoBehaviour
                 MoveToPoint(hit.point + new Vector3(0f, 0.2f, 0f), Quaternion.identity);
             }
 
-            if(Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(0))
+            if((Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(0)) && BattleController.instance.battleEnded == false)
             {
                 ReturnToHand();
             }
 
-            if (Input.GetMouseButtonUp(0) && !justPressed && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive)
+            if (Input.GetMouseButtonUp(0) && !justPressed && (BattleController.instance.currentFase == BattleController.TurnOrder.playerActive) && BattleController.instance.battleEnded == false)
             {
                 if (Physics.Raycast(ray, out hit, 100f, whatIsPlacement))
                 {
@@ -167,7 +164,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(inHand && isPlayer)
+        if(inHand && isPlayer && BattleController.instance.battleEnded == false)
         {
             MoveToPoint(handController.cardPosition[handPosition] + new Vector3(0f, 0.25f, .5f), Quaternion.identity);
         }
@@ -193,7 +190,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer && finished)
+        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer && BattleController.instance.canAttackAgain == true && BattleController.instance.battleEnded == false)
         {
             isSelected = true;
             theCollider.enabled = false;
@@ -286,15 +283,10 @@ public class Card : MonoBehaviour
 
     IEnumerator WaitToAttackAndDiscard()
     {
-     
-        finished = false;
-
         yield return new WaitForSeconds(.25f);
 
         anim.SetTrigger("Attack");
         enemyCard.anim.SetTrigger("Attack");
-
-        Debug.Log("Cards Attacked");
 
         yield return new WaitForSeconds(1.3f);
 
@@ -310,10 +302,7 @@ public class Card : MonoBehaviour
         enemyCard.MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
         enemyCard.anim.SetTrigger("Jump");
 
-        finished = true;
-
-        enemyCard.assignedPlace = null;
-        assignedPlace.activeCard = null;
+        BattleController.instance.CheckPoints(); //Will Check the points and end the battle if either the player or the enemy won
     }
 
 }

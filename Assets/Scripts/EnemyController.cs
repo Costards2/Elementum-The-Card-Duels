@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
 
     public List<CardScriptableObjects> deckToUse = new List<CardScriptableObjects>();
     private List<CardScriptableObjects> activeCards = new List<CardScriptableObjects>();
+    //private List<CardScriptableObjects> cardsInHand = new List<CardScriptableObjects>();
+
+    public int startHandSize;
 
     public Card cardToSpawn;
     public Transform cardSpawnPoint;
@@ -24,6 +27,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         SetUpDeck();
+        //SetUpHand();
     }
 
     public void SetUpDeck()
@@ -37,7 +41,6 @@ public class EnemyController : MonoBehaviour
 
         while (tempDeck.Count > 0 && interations < 500)
         {
-            Debug.Log("While");
             int selected = Random.Range(0, tempDeck.Count);
             activeCards.Add(tempDeck[selected]);
             tempDeck.RemoveAt(selected);
@@ -58,7 +61,7 @@ public class EnemyController : MonoBehaviour
             SetUpDeck();
         }
 
-        yield return new WaitForSeconds(.5f);
+        //yield return new WaitForSeconds(.5f);
 
         List<CardPlacePoint> cardPoint = new List<CardPlacePoint>();
         cardPoint.AddRange(CardPointController.instace.enemyCardPoint);
@@ -95,4 +98,18 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         BattleController.instance.AdvanceTurn();
     }
+
+    //void SetUpHand()
+    //{
+    //    for (int i = 0; i < startHandSize; i++)
+    //    {
+    //        if(activeCards.Count == 0)
+    //        {
+    //            SetUpDeck();
+    //        }
+
+    //        cardsInHand.Add(activeCards[0]);
+    //        activeCards.RemoveAt(0);
+    //    }
+    //}
 }

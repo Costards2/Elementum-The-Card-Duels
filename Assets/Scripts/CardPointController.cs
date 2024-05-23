@@ -17,7 +17,7 @@ public class CardPointController : MonoBehaviour
     public void PlayerAttack()
     {
         StartCoroutine(PlayerAttackCo());
-    }
+    } 
 
     IEnumerator PlayerAttackCo()
     {
