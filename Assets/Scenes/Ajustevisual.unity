@@ -311,24 +311,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6879092500615147219, guid: 035f3b0b362788e4c9a47b1bda15bbeb,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6879092500615147219, guid: 035f3b0b362788e4c9a47b1bda15bbeb,
-        type: 3}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 92e8d54805724af469ae54d3b66458c8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4933568453779361542, guid: 035f3b0b362788e4c9a47b1bda15bbeb,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2014282582}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 035f3b0b362788e4c9a47b1bda15bbeb, type: 3}
 --- !u!4 &180592803 stripped
 Transform:
@@ -499,6 +485,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Card Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7623358749224011848, guid: 87bef10a4fa231641ad025ffbfbe88f0,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623358749224011848, guid: 87bef10a4fa231641ad025ffbfbe88f0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92e8d54805724af469ae54d3b66458c8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3179,34 +3175,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014057553}
   m_CullTransparentMesh: 1
---- !u!1 &2014282579 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4933568453779361542, guid: 035f3b0b362788e4c9a47b1bda15bbeb,
-    type: 3}
-  m_PrefabInstance: {fileID: 180592802}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2014282582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014282579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68f43a29ee710b46a778564d057ec22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dissolveTexture: {fileID: 0}
-  dissolveColor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
-  delayBeforeStart: 3
-  dissolveTime: 2
-  material: {fileID: 0}
-  dissolveProgress: 0.3
 --- !u!1 &2098910815
 GameObject:
   m_ObjectHideFlags: 0
