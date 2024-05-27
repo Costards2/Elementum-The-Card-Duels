@@ -47,6 +47,9 @@ public class Card : MonoBehaviour
 
     public Animator anim;
 
+    Transform child;
+    Transform grandChild;
+
     void Start()
     {
         //Making the enemy card stay on Its position
@@ -60,6 +63,14 @@ public class Card : MonoBehaviour
 
         handController = FindObjectOfType<HandController>(); 
         theCollider = GetComponent<Collider>();
+
+        child = transform.GetChild(0);
+
+        if (child != null)
+        {
+             grandChild = child.GetChild(0); 
+        }
+    
     }
 
     void Update()
@@ -166,6 +177,7 @@ public class Card : MonoBehaviour
     {
         if(inHand && isPlayer && BattleController.instance.battleEnded == false)
         {
+            grandChild.GetComponent<CardOutline>().OutlineOn();
             MoveToPoint(handController.cardPosition[handPosition] + new Vector3(0f, 0.25f, .5f), Quaternion.identity);
         }
     }
@@ -174,6 +186,7 @@ public class Card : MonoBehaviour
     {
         if (inHand && isPlayer)
         {
+            grandChild.GetComponent<CardOutline>().OutlineOff();
             MoveToPoint(handController.cardPosition[handPosition], handController.minPos.rotation);
         }
     }
@@ -304,5 +317,4 @@ public class Card : MonoBehaviour
 
         BattleController.instance.CheckPoints(); //Will Check the points and end the battle if either the player or the enemy won
     }
-
 }

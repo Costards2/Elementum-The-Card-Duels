@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 125022199}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: -1.25}
+  m_LocalPosition: {x: 0, y: 0.3, z: -1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -272,7 +272,7 @@ Transform:
   m_GameObject: {fileID: 193714648}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.88471687, y: 7.457664, z: 1.0342817}
+  m_LocalPosition: {x: -0.88471687, y: 7.457664, z: 1.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1667,7 +1667,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c0ce528839d6e1458f6ef990cd9749a, type: 3}
-  m_Color: {r: 0.9339623, g: 0.118948035, b: 0.118948035, a: 0}
+  m_Color: {r: 0.9339623, g: 0.118948035, b: 0.118948035, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1916,6 +1916,8 @@ MonoBehaviour:
   enemyPointFire: 0
   enemyPointWater: 0
   enemyPointPlant: 0
+  canAttackAgain: 0
+  battleEnded: 0
 --- !u!4 &917015347
 Transform:
   m_ObjectHideFlags: 0
@@ -2232,7 +2234,7 @@ Transform:
   m_GameObject: {fileID: 1181614417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.35, y: 0, z: 0}
+  m_LocalPosition: {x: 1.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2402,7 +2404,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c0ce528839d6e1458f6ef990cd9749a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3094,7 +3096,7 @@ Transform:
   m_GameObject: {fileID: 1587443957}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8837169, y: 7.457664, z: 2.3379598}
+  m_LocalPosition: {x: -0.8837169, y: 7.457664, z: 2.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3251,13 +3253,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663408224}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.35, y: 0, z: 0}
+  m_LocalRotation: {x: -0.000115209696, y: 0.0169516, z: -0.032529842, w: 0.99932706}
+  m_LocalPosition: {x: -1.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 125022201}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.05, y: 1.942, z: -3.728}
 --- !u!1 &1711072512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,6 +3688,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3feb9e396378b8f438c104d3c2d0f21c, type: 2}
   - {fileID: 11400000, guid: 6f5abceb7aefc004fbe6896ab025953c, type: 2}
   - {fileID: 11400000, guid: 8e604407fc098e648a27b38fd185fd78, type: 2}
+  startHandSize: 0
   cardToSpawn: {fileID: 818932004612275409, guid: 87bef10a4fa231641ad025ffbfbe88f0,
     type: 3}
   cardSpawnPoint: {fileID: 453233867}
@@ -3743,6 +3746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184484858647471500, guid: 445e624cb153365468bb2085cea8b650,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335910273168124312, guid: 445e624cb153365468bb2085cea8b650,
         type: 3}
@@ -3809,6 +3817,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.1514
       objectReference: {fileID: 0}
+    - target: {fileID: 5934756348171164497, guid: 445e624cb153365468bb2085cea8b650,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3845,7 +3858,7 @@ Transform:
   m_GameObject: {fileID: 2108686945}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: -4, y: 0.5, z: 0}
+  m_LocalPosition: {x: -6, y: 0.5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
