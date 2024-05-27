@@ -36,6 +36,8 @@ public class CardPointController : MonoBehaviour
             //yield return new WaitForSeconds(timeBetweenAttacks);
         }
 
+        yield return new WaitForSeconds(1f);
+
         BattleController.instance.AdvanceTurn();
     }
 }
