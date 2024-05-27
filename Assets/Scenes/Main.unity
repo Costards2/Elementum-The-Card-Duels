@@ -2270,9 +2270,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckToUse:
-  - {fileID: 11400000, guid: 3feb9e396378b8f438c104d3c2d0f21c, type: 2}
-  - {fileID: 11400000, guid: 6f5abceb7aefc004fbe6896ab025953c, type: 2}
-  - {fileID: 11400000, guid: 8e604407fc098e648a27b38fd185fd78, type: 2}
+  - {fileID: 11400000, guid: 9d8cbbed2ce3b7149b88ca7d18b8ad49, type: 2}
+  - {fileID: 11400000, guid: 847df87823c251244bcdf3a5730e3d9d, type: 2}
+  - {fileID: 11400000, guid: 11543f2d00eec704dabd2f4183c7283d, type: 2}
+  - {fileID: 11400000, guid: e112d8ce3468d6c429a549125533d8bf, type: 2}
+  - {fileID: 11400000, guid: 1c654b6cf0cbf084bb1312c4c1977117, type: 2}
+  - {fileID: 11400000, guid: 5baa607ea830bc04baa5e098c8b0a88c, type: 2}
+  - {fileID: 11400000, guid: e1429b87e92b1d141b88435516e923ba, type: 2}
+  - {fileID: 11400000, guid: 3a5f0893fd6d95c4ebf6df5a0dc9d6ff, type: 2}
+  - {fileID: 11400000, guid: ce4cbcfcb6401f646be89bd66ff697ba, type: 2}
+  - {fileID: 11400000, guid: 7ff262131f1eb1c43a5bf60c66df146f, type: 2}
+  - {fileID: 11400000, guid: 2d7d4daddf57e504b859480ea1adea5a, type: 2}
+  - {fileID: 11400000, guid: f1b2f15e3f869e84986fb48ac0d7b892, type: 2}
   cardToSpawn: {fileID: 7303984471995609699, guid: 59964c928613bf446ac4550f3ecef856,
     type: 3}
   waitBetweenDrawingCards: 0.25
@@ -3685,9 +3694,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckToUse:
-  - {fileID: 11400000, guid: 3feb9e396378b8f438c104d3c2d0f21c, type: 2}
-  - {fileID: 11400000, guid: 6f5abceb7aefc004fbe6896ab025953c, type: 2}
-  - {fileID: 11400000, guid: 8e604407fc098e648a27b38fd185fd78, type: 2}
+  - {fileID: 11400000, guid: 9d8cbbed2ce3b7149b88ca7d18b8ad49, type: 2}
+  - {fileID: 11400000, guid: 847df87823c251244bcdf3a5730e3d9d, type: 2}
+  - {fileID: 11400000, guid: 11543f2d00eec704dabd2f4183c7283d, type: 2}
+  - {fileID: 11400000, guid: e112d8ce3468d6c429a549125533d8bf, type: 2}
+  - {fileID: 11400000, guid: 1c654b6cf0cbf084bb1312c4c1977117, type: 2}
+  - {fileID: 11400000, guid: 5baa607ea830bc04baa5e098c8b0a88c, type: 2}
+  - {fileID: 11400000, guid: e1429b87e92b1d141b88435516e923ba, type: 2}
+  - {fileID: 11400000, guid: 3a5f0893fd6d95c4ebf6df5a0dc9d6ff, type: 2}
+  - {fileID: 11400000, guid: ce4cbcfcb6401f646be89bd66ff697ba, type: 2}
+  - {fileID: 11400000, guid: 7ff262131f1eb1c43a5bf60c66df146f, type: 2}
+  - {fileID: 11400000, guid: 2d7d4daddf57e504b859480ea1adea5a, type: 2}
+  - {fileID: 11400000, guid: f1b2f15e3f869e84986fb48ac0d7b892, type: 2}
   startHandSize: 0
   cardToSpawn: {fileID: 818932004612275409, guid: 87bef10a4fa231641ad025ffbfbe88f0,
     type: 3}
