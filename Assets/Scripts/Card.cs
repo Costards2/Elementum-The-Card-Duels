@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEditor;
 using System;
+using static Unity.VisualScripting.Member;
 
 public class Card : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class Card : MonoBehaviour
     Transform child;
     Transform grandChild;
 
+    private AudioSource myAudioSource;
+
     void Start()
     {
         //Making the enemy card stay on Its position
@@ -68,9 +71,11 @@ public class Card : MonoBehaviour
 
         if (child != null)
         {
-             grandChild = child.GetChild(0); 
+             grandChild = child.GetChild(0);
         }
-    
+
+        myAudioSource = GetComponent<AudioSource>();
+        myAudioSource.clip = cardSO.attackClip; 
     }
 
     void Update()
@@ -221,21 +226,26 @@ public class Card : MonoBehaviour
 
     public void AttackCard(int powerAmount, Type element, GameObject card) // Add a better "win controller", Create a Battle turn Controller because all the win or loose turn code is done in the card script and change some of this Ifs for swicth
     {
-        if(selectedType == element)
+        enemyCard = card.GetComponent<Card>();
+
+        if (selectedType == element)
         {
            if(this.attackPower > powerAmount) 
            {
                 if (selectedType == Type.Fire)
                 {
                     BattleController.instance.UpdatePlayerPointFire();
+                    myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (selectedType == Type.Water)
                 {
                     BattleController.instance.UpdatePlayerPointWater();
+                    myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (selectedType == Type.Plant)
                 {
                     BattleController.instance.UpdatePlayerPointPlant();
+                    myAudioSource.PlayDelayed(1.25f);
                 }
            } 
            else if(this.attackPower < powerAmount)
@@ -243,14 +253,17 @@ public class Card : MonoBehaviour
                 if (element == Type.Water)
                 {
                     BattleController.instance.UpdateEnemyPointWater();
+                    enemyCard.myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (element == Type.Plant)
                 {
                     BattleController.instance.UpdateEnemyPointPlant();
+                    enemyCard.myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (element == Type.Fire)
                 {
                     BattleController.instance.UpdateEnemyPointFire();
+                    enemyCard.myAudioSource.PlayDelayed(1.25f);
                 }
             }
            else
@@ -263,31 +276,34 @@ public class Card : MonoBehaviour
             if(selectedType == Type.Fire && element == Type.Water)
             {
                 BattleController.instance.UpdateEnemyPointWater();
+                enemyCard.myAudioSource.PlayDelayed(1.25f);
             }
             else if(selectedType == Type.Water && element == Type.Plant)
             {
                 BattleController.instance.UpdateEnemyPointPlant();
+                enemyCard.myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Plant && element == Type.Fire)
             {
                 BattleController.instance.UpdateEnemyPointFire();
+                enemyCard.myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Fire && element == Type.Plant)
             {
                 BattleController.instance.UpdatePlayerPointFire();
+                myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Water && element == Type.Fire)
             {
                 BattleController.instance.UpdatePlayerPointWater();
+                myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Plant && element == Type.Water)
             {
                 BattleController.instance.UpdatePlayerPointPlant();
+                myAudioSource.PlayDelayed(1.25f);
             }
         }
-
-        enemyCard = card.GetComponent<Card>();
-
         StartCoroutine(WaitToAttackAndDiscard());
 
         Destroy(card, 5f);
