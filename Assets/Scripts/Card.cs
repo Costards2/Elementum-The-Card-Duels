@@ -312,6 +312,8 @@ public class Card : MonoBehaviour
 
     IEnumerator WaitToAttackAndDiscard()
     {
+        BattleController.instance.CheckPoints(); //Will Check the points and end the battle if either the player or the enemy won
+        
         yield return new WaitForSeconds(.25f);
 
         anim.SetTrigger("Attack");
@@ -330,7 +332,5 @@ public class Card : MonoBehaviour
         anim.SetTrigger("Jump");
         enemyCard.MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
         enemyCard.anim.SetTrigger("Jump");
-
-        BattleController.instance.CheckPoints(); //Will Check the points and end the battle if either the player or the enemy won
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class BattleController : MonoBehaviour
 {
@@ -74,7 +75,11 @@ public class BattleController : MonoBehaviour
 
                     CardPointController.instace.playerCardPoint[0].activeCard = null;
                     CardPointController.instace.enemyCardPoint[0].activeCard = null;
-                    StartCoroutine(CardDrawDelay());//or you can use: DeckController.instance.DrawnCardToHand();
+                    
+                    if(!battleEnded)
+                    {
+                        StartCoroutine(CardDrawDelay());//or you can use: DeckController.instance.DrawnCardToHand();
+                    }
 
                     break;
 
@@ -120,7 +125,6 @@ public class BattleController : MonoBehaviour
     {
         playerPointPlant++;
     }
-
     public void UpdateEnemyPointFire()
     {
         enemyPointFire++;
@@ -157,6 +161,15 @@ public class BattleController : MonoBehaviour
     void EndBattle()
     {
         battleEnded = true;
+        StartCoroutine(EmpityHand());
         Debug.Log("Ended");
+    }
+
+    //Made this enumarator so the hand wouldn't be emptied righ away 
+    IEnumerator EmpityHand()
+    {
+        yield return new WaitForSeconds(2.7f);
+
+        HandController.instance.EmpityHand();   
     }
 }

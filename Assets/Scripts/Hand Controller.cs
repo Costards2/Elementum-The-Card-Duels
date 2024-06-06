@@ -64,4 +64,13 @@ public class HandController : MonoBehaviour
         heldCards.Add(cardToAdd);
         SetCardPositionsInHand();
     }
+
+    public void EmpityHand() 
+    {
+            foreach(Card heldCard in heldCards)
+            {
+                heldCard.inHand = false;
+                heldCard.MoveToPoint(BattleController.instance.discardPoint.position, heldCard.transform.rotation);
+            }
+    }
 }
