@@ -161,15 +161,32 @@ public class BattleController : MonoBehaviour
     void EndBattle()
     {
         battleEnded = true;
+
+        if(playerWon)
+        {
+            UI.instance.battleResulttext.text = "YOU WON";
+        }
+        else
+        {
+            UI.instance.battleResulttext.text = "YOU LOST";
+        }
+
         StartCoroutine(EmpityHand());
-        Debug.Log("Ended");
+        StartCoroutine(ShowResult());
     }
 
     //Made this enumarator so the hand wouldn't be emptied righ away 
     IEnumerator EmpityHand()
     {
-        yield return new WaitForSeconds(2.7f);
+        yield return new WaitForSeconds(2.75f);
 
         HandController.instance.EmpityHand();   
+    }
+
+      IEnumerator ShowResult()
+    {
+        yield return new WaitForSeconds(3.25f);
+
+        UI.instance.battleEndScreen.SetActive(true);   
     }
 }

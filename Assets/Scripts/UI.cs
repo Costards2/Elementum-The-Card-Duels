@@ -14,6 +14,9 @@ public class UI : MonoBehaviour
     //public TMP_Text playerText;
     //public TMP_Text EnemyText;
 
+    public GameObject battleEndScreen;
+    public TMP_Text battleResulttext;
+
     public int playerPointFire = 0;
     public int playerPointWater = 0;
     public int playerPointPlant = 0;
@@ -164,5 +167,15 @@ public class UI : MonoBehaviour
 
         //playerText.text = ("P = " + playerPoints);
         //EnemyText.text = ("E = " + enemyPoints);
+    }
+
+    public void MainMenu() 
+    {
+        
+    }
+
+    public void ReStartLevel() 
+    {
+        
     }
 }
