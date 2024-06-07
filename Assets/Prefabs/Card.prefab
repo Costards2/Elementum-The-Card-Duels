@@ -551,6 +551,8 @@ MonoBehaviour:
   assignedPlace: {fileID: 0}
   enemyCard: {fileID: 0}
   anim: {fileID: 4418944850607812393}
+  alive: 0
+  dissolveAnimator: {fileID: 1085134694788413382}
 --- !u!65 &4196442570506260347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -880,6 +882,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 53591149133493558}
+    - targetCorrespondingSourceObject: {fileID: 4933568453779361542, guid: 035f3b0b362788e4c9a47b1bda15bbeb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1085134694788413382}
   m_SourcePrefab: {fileID: 100100000, guid: 035f3b0b362788e4c9a47b1bda15bbeb, type: 3}
 --- !u!4 &1693680859520597397 stripped
 Transform:
@@ -905,3 +911,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fc994e99896824a8e24c2a5042c53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1085134694788413382
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074744804237518639}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cf058e508bf1b04083f2cee9213d154, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

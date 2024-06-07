@@ -16,5 +16,6 @@ MonoBehaviour:
   attackPower: 3
   cardName: Incinerado
   cardSprite: {fileID: 2100000, guid: 918971481f9c01c4888121cd1adfa6f9, type: 2}
+  cardDissolve: {fileID: 2100000, guid: 72004951b2a0664429e64bba9b4cd127, type: 2}
   cardElement: {fileID: 21300000, guid: 9b92c57b4d49d064fa061536e38bd6ca, type: 3}
   attackClip: {fileID: 8300000, guid: da348698f1e613b4697288ddc02a6430, type: 3}

@@ -16,5 +16,6 @@ MonoBehaviour:
   attackPower: 2
   cardName: Chama
   cardSprite: {fileID: 2100000, guid: 3d49a729221676449b1df615970dde0f, type: 2}
+  cardDissolve: {fileID: 2100000, guid: 72004951b2a0664429e64bba9b4cd127, type: 2}
   cardElement: {fileID: 21300000, guid: 9b92c57b4d49d064fa061536e38bd6ca, type: 3}
   attackClip: {fileID: 8300000, guid: 1ef70c73951596d4399ac501305e7a2d, type: 3}

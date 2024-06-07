@@ -10,14 +10,19 @@ public class MenuManager : MonoBehaviour
     {
         instance = this;
     }
-      public void MainMenu()
+    public void MainMenu()
     {
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void Jogar()
+    public void JogarEasy()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Gameplay 1");
+    }
+
+     public void JogarBasic()
+    {
+        SceneManager.LoadScene("Gameplay 2");
     }
 
     public void Pular()
@@ -27,14 +32,12 @@ public class MenuManager : MonoBehaviour
 
     public void Config()
     {
-        //painelMenu.SetActive(true);
-        //paineBasic.SetActive(false);
+        
     }
 
     public void Voltar()
     {
-        //painelMenu.SetActive(false);
-        //paineBasic.SetActive(true);
+        
     }
 
     public void Sair()

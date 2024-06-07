@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public Card cardToSpawn;
     public Transform cardSpawnPoint;
 
-    public enum AIType {Basic, Advanced}
+    public enum AIType {Basic, Advanced, Easy}
     public AIType enemyAIType = AIType.Basic;
 
     private void Awake()
@@ -70,6 +70,10 @@ public class EnemyController : MonoBehaviour
 
         switch (enemyAIType)
         {
+             case AIType.Easy:
+
+                break;
+
             case AIType.Basic:
 
                 if (selectedPoint.activeCard == null)

@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using System;
 using static Unity.VisualScripting.Member;
+using Unity.VisualScripting;
 
 public class Card : MonoBehaviour
 {
@@ -51,8 +52,11 @@ public class Card : MonoBehaviour
     Transform child;
     Transform grandChild;
 
+    //Transform grandGrandChild;
     private AudioSource myAudioSource;
+    public bool alive;
 
+    public Animator dissolveAnimator;
     void Start()
     {
         //Making the enemy card stay on Its position
@@ -61,6 +65,8 @@ public class Card : MonoBehaviour
             targetPoint = this.transform.position;
             targetRotation = this.transform.rotation;
         }
+
+        alive = true;
 
         SetUpCard();
 
@@ -72,6 +78,13 @@ public class Card : MonoBehaviour
         if (child != null)
         {
              grandChild = child.GetChild(0);
+
+             if(grandChild != null)
+             {
+                Animator dissolveAnimator = grandChild.GetComponent<Animator>();
+
+                Debug.Log(grandChild.ToString());
+             }
         }
 
         myAudioSource = GetComponent<AudioSource>();
@@ -235,16 +248,19 @@ public class Card : MonoBehaviour
                 if (selectedType == Type.Fire)
                 {
                     BattleController.instance.UpdatePlayerPointFire();
+                    enemyCard.alive = false;
                     myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (selectedType == Type.Water)
                 {
                     BattleController.instance.UpdatePlayerPointWater();
+                    enemyCard.alive = false;
                     myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (selectedType == Type.Plant)
                 {
                     BattleController.instance.UpdatePlayerPointPlant();
+                    enemyCard.alive = false;
                     myAudioSource.PlayDelayed(1.25f);
                 }
            } 
@@ -253,16 +269,19 @@ public class Card : MonoBehaviour
                 if (element == Type.Water)
                 {
                     BattleController.instance.UpdateEnemyPointWater();
+                    alive = false;
                     enemyCard.myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (element == Type.Plant)
                 {
                     BattleController.instance.UpdateEnemyPointPlant();
+                    alive = false;
                     enemyCard.myAudioSource.PlayDelayed(1.25f);
                 }
                 else if (element == Type.Fire)
                 {
                     BattleController.instance.UpdateEnemyPointFire();
+                    alive = false;
                     enemyCard.myAudioSource.PlayDelayed(1.25f);
                 }
             }
@@ -276,37 +295,43 @@ public class Card : MonoBehaviour
             if(selectedType == Type.Fire && element == Type.Water)
             {
                 BattleController.instance.UpdateEnemyPointWater();
+                alive = false;
                 enemyCard.myAudioSource.PlayDelayed(1.25f);
             }
             else if(selectedType == Type.Water && element == Type.Plant)
             {
                 BattleController.instance.UpdateEnemyPointPlant();
+                alive = false;
                 enemyCard.myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Plant && element == Type.Fire)
             {
                 BattleController.instance.UpdateEnemyPointFire();
+                alive = false;
                 enemyCard.myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Fire && element == Type.Plant)
             {
                 BattleController.instance.UpdatePlayerPointFire();
+                enemyCard.alive = false;
                 myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Water && element == Type.Fire)
             {
                 BattleController.instance.UpdatePlayerPointWater();
+                enemyCard.alive = false;
                 myAudioSource.PlayDelayed(1.25f);
             }
             else if (selectedType == Type.Plant && element == Type.Water)
             {
                 BattleController.instance.UpdatePlayerPointPlant();
+                enemyCard.alive = false;
                 myAudioSource.PlayDelayed(1.25f);
             }
         }
         StartCoroutine(WaitToAttackAndDiscard());
 
-        Destroy(card, 5f);
+        Destroy(card, 6f);
         Destroy(gameObject, 5f);
     }
 
@@ -325,12 +350,31 @@ public class Card : MonoBehaviour
 
         anim.SetTrigger("AfterAttack"); //insteaf of using an after attack I could have made it all in attack but i decided to do this way to "play" a little more
         enemyCard.anim.SetTrigger("AfterAttack");
+        
+        CardDissolve();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
         anim.SetTrigger("Jump");
         enemyCard.MoveToPoint(BattleController.instance.discardPoint.position, BattleController.instance.discardPoint.rotation);
         enemyCard.anim.SetTrigger("Jump");
+    }
+
+    public void CardDissolve()
+    {
+        if(alive == false)
+        {
+            cardElementImage.color = new Color (0, 0, 0, 0);
+            attackPowerString.text = null;
+
+            Material[] materials = _meshRenderer.sharedMaterials;
+            materials[0] = cardSO.cardDissolve;
+            materials[1] = cardSO.cardDissolve;
+
+           _meshRenderer.sharedMaterials = materials;
+
+           dissolveAnimator.SetTrigger(scripatableObjectType.ToString());
+        }
     }
 }

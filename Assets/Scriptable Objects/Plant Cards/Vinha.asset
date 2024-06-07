@@ -16,5 +16,6 @@ MonoBehaviour:
   attackPower: 3
   cardName: Vinha
   cardSprite: {fileID: 2100000, guid: 4ed4fd203bf91f1439812f9cb05aecd4, type: 2}
+  cardDissolve: {fileID: 2100000, guid: a8fc922dbf8355e40905b80f6580247c, type: 2}
   cardElement: {fileID: 21300000, guid: ee7016b71e8014e4b99c886ad72ee6a1, type: 3}
   attackClip: {fileID: 8300000, guid: 1cd7bdffc6f8875459db5ed13ad1829d, type: 3}

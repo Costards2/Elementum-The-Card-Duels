@@ -16,5 +16,6 @@ MonoBehaviour:
   attackPower: 2
   cardName: Erva
   cardSprite: {fileID: 2100000, guid: ecb22f64dfe8fa94aaad1944d61f2987, type: 2}
+  cardDissolve: {fileID: 2100000, guid: a8fc922dbf8355e40905b80f6580247c, type: 2}
   cardElement: {fileID: 21300000, guid: ee7016b71e8014e4b99c886ad72ee6a1, type: 3}
   attackClip: {fileID: 8300000, guid: d70567406795c8443aecf865145f7618, type: 3}

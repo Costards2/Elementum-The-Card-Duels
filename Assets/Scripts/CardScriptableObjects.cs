@@ -16,6 +16,8 @@ public class CardScriptableObjects : ScriptableObject
 
     public Material cardSprite;
 
+    public Material cardDissolve;
+
     public Sprite cardElement;
 
     public AudioClip attackClip;
