@@ -31,6 +31,8 @@ public class BattleController : MonoBehaviour
     private bool enemyWon;
 
     public bool battleEnded;
+    public AudioClip[] audioClips = new AudioClip[2];
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -46,6 +48,8 @@ public class BattleController : MonoBehaviour
 
         canAttackAgain = true;
         DeckController.instance.DrawMutipleCards(startingCardsAmount);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -187,6 +191,15 @@ public class BattleController : MonoBehaviour
     {
         yield return new WaitForSeconds(3.25f);
 
-        UI.instance.battleEndScreen.SetActive(true);   
+        UI.instance.battleEndScreen.SetActive(true);
+
+        if(playerWon)
+        {
+            audioSource.PlayOneShot(audioClips[0]);
+        }
+        else
+        {
+            audioSource.PlayOneShot(audioClips[1]);
+        }
     }
 }

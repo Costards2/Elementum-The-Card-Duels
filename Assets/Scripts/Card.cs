@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -80,11 +80,9 @@ public class Card : MonoBehaviour
              grandChild = child.GetChild(0);
 
              if(grandChild != null)
-             {
+            {
                 Animator dissolveAnimator = grandChild.GetComponent<Animator>();
-
-                Debug.Log(grandChild.ToString());
-             }
+            }
         }
 
         myAudioSource = GetComponent<AudioSource>();
@@ -352,6 +350,7 @@ public class Card : MonoBehaviour
         enemyCard.anim.SetTrigger("AfterAttack");
         
         CardDissolve();
+        enemyCard.CardDissolve();
 
         yield return new WaitForSeconds(2f);
 
