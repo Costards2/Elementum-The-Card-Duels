@@ -94,7 +94,7 @@ public class Card : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPoint, moveSpeed * Time.deltaTime);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
-        if (isSelected)
+        if (isSelected && Time.timeScale != 0)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -191,7 +191,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(inHand && isPlayer && BattleController.instance.battleEnded == false)
+        if(inHand && isPlayer && BattleController.instance.battleEnded == false && Time.timeScale != 0)
         {
             grandChild.GetComponent<CardOutline>().OutlineOn();
             MoveToPoint(handController.cardPosition[handPosition] + new Vector3(0f, 0.25f, .5f), Quaternion.identity);
@@ -200,7 +200,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (inHand && isPlayer)
+        if (inHand && isPlayer && Time.timeScale != 0)
         {
             grandChild.GetComponent<CardOutline>().OutlineOff();
             MoveToPoint(handController.cardPosition[handPosition], handController.minPos.rotation);
@@ -219,7 +219,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer && BattleController.instance.canAttackAgain == true && BattleController.instance.battleEnded == false)
+        if (inHand && BattleController.instance.currentFase == BattleController.TurnOrder.playerActive && isPlayer && BattleController.instance.canAttackAgain == true && BattleController.instance.battleEnded == false && Time.timeScale != 0)
         {
             isSelected = true;
             theCollider.enabled = false;

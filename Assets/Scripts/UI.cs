@@ -26,14 +26,24 @@ public class UI : MonoBehaviour
     public int enemyPointWater = 0;
     public int enemyPointPlant = 0;
 
+    public GameObject pauseScreen;
+
     private void Awake()
     {
         instance = this;
 
+        Time.timeScale = 1;
         //playerText.text = ("P = " + playerPoints);
         //EnemyText.text = ("E = " + enemyPoints);
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseUnpause();
+        }
+    }
     public void UpdatePointsUI()
     {
         playerPointFire = BattleController.instance.playerPointFire;
@@ -178,5 +188,19 @@ public class UI : MonoBehaviour
     public void ReStartLevel() 
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void PauseUnpause()
+    {
+        if(pauseScreen.activeSelf == false)
+        {
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 }

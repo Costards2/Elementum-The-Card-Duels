@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        AudioManager.instance.StopMusic();
+        AudioManager.instance.playMenuMusic();
     }
     public void MainMenu()
     {
