@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(this);
         }
-        //StopMusic();
+        StopMusic();
     }
     
     public AudioSource menuMusic;
