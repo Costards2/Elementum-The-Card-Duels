@@ -999,95 +999,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: enemyUiPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: enemyUiPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: enemyUiPoints.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[7]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 630276100668698181, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: playerUiPoints.Array.data[8]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3760492235989768458, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
         type: 3}
       propertyPath: m_Name
       value: 'UI Canvas '
-      objectReference: {fileID: 0}
-    - target: {fileID: 3760492235989768458, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961041394427120409, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -34
-      objectReference: {fileID: 0}
-    - target: {fileID: 6564877084303602507, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -316
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380781673884530893, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380781673884530893, guid: 4d0308a2c1a12ed478795c1ec50bd5e4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

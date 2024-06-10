@@ -97,6 +97,7 @@ public class BattleController : MonoBehaviour
 
                     canAttackAgain = false;
                     StartCoroutine(CardAttackDelay());
+                    UI.instance.UpdatePointsUI();
 
                     break;
 
@@ -187,7 +188,7 @@ public class BattleController : MonoBehaviour
         HandController.instance.EmpityHand();   
     }
 
-      IEnumerator ShowResult()
+    IEnumerator ShowResult()
     {
         yield return new WaitForSeconds(3.25f);
 

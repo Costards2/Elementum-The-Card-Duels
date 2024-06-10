@@ -4,13 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+using System;
 
 public class UI : MonoBehaviour
 {
     public static UI instance;
 
-    public GameObject[] playerUiPoints = new GameObject[9];
-    public GameObject[] enemyUiPoints = new GameObject[9];
+    //public GameObject[] playerUiPoints = new GameObject[9];
+    //public GameObject[] enemyUiPoints = new GameObject[9];
 
     //public TMP_Text playerText;
     //public TMP_Text EnemyText;
@@ -18,6 +20,7 @@ public class UI : MonoBehaviour
     public GameObject battleEndScreen;
     public TMP_Text battleResulttext;
 
+    //VALUES
     public int playerPointFire = 0;
     public int playerPointWater = 0;
     public int playerPointPlant = 0;
@@ -26,6 +29,15 @@ public class UI : MonoBehaviour
     public int enemyPointWater = 0;
     public int enemyPointPlant = 0;
 
+    //TEXT
+    public TextMeshProUGUI playerPointFireText;
+    public TextMeshProUGUI playerPointWaterText;
+    public TextMeshProUGUI playerPointPlantText;
+
+    public TextMeshProUGUI enemyPointFireText;
+    public TextMeshProUGUI enemyPointWaterText;
+    public TextMeshProUGUI enemyPointPlantText;
+
     public GameObject pauseScreen;
 
     private void Awake()
@@ -33,8 +45,6 @@ public class UI : MonoBehaviour
         instance = this;
 
         Time.timeScale = 1;
-        //playerText.text = ("P = " + playerPoints);
-        //EnemyText.text = ("E = " + enemyPoints);
     }
 
     private void Update()
@@ -43,6 +53,8 @@ public class UI : MonoBehaviour
         {
             PauseUnpause();
         }
+
+        UnityEngine.Debug.Log(playerPointPlant);
     }
     public void UpdatePointsUI()
     {
@@ -54,127 +66,136 @@ public class UI : MonoBehaviour
         enemyPointWater = BattleController.instance.enemyPointWater;
         enemyPointPlant = BattleController.instance.enemyPointPlant;
 
-        switch(playerPointFire)
-        {
-            case 1:
+        playerPointFireText.text = (playerPointFire.ToString());
+        playerPointWaterText.text = (playerPointWater.ToString());
+        playerPointPlantText.text = (playerPointPlant.ToString());
 
-                playerUiPoints[0].SetActive(true);
+        enemyPointFireText.text = (enemyPointFire.ToString());
+        enemyPointWaterText.text = (enemyPointWater.ToString());
+        enemyPointPlantText.text = (enemyPointPlant.ToString());
+
+        //Old Ui with many objects 
+        // switch(playerPointFire)
+        // {
+        //     case 1:
+
+        //         playerUiPoints[0].SetActive(true);
                 
-                break;
+        //         break;
 
-            case 2:
+        //     case 2:
 
-                playerUiPoints[1].SetActive(true);
+        //         playerUiPoints[1].SetActive(true);
 
-                break;
+        //         break;
 
-            case 3:
+        //     case 3:
 
-                playerUiPoints[2].SetActive(true);
+        //         playerUiPoints[2].SetActive(true);
 
-                break;
-        }
-        switch (playerPointWater)
-        {
-            case 1:
+        //         break;
+        // }
+        // switch (playerPointWater)
+        // {
+        //     case 1:
 
-                playerUiPoints[3].SetActive(true);
+        //         playerUiPoints[3].SetActive(true);
 
-                break;
+        //         break;
 
-            case 2:
+        //     case 2:
 
-                playerUiPoints[4].SetActive(true);
+        //         playerUiPoints[4].SetActive(true);
 
-                break;
+        //         break;
 
-            case 3:
+        //     case 3:
 
-                playerUiPoints[5].SetActive(true);
+        //         playerUiPoints[5].SetActive(true);
 
-                break;
-        }
-        switch (playerPointPlant)
-        {
-            case 1:
+        //         break;
+        // }
+        // switch (playerPointPlant)
+        // {
+        //     case 1:
 
-                playerUiPoints[6].SetActive(true);
+        //         playerUiPoints[6].SetActive(true);
 
-                break;
+        //         break;
 
-            case 2:
+        //     case 2:
 
-                playerUiPoints[7].SetActive(true);
+        //         playerUiPoints[7].SetActive(true);
 
-                break;
+        //         break;
 
-            case 3:
+        //     case 3:
 
-                playerUiPoints[8].SetActive(true);
+        //         playerUiPoints[8].SetActive(true);
 
-                break;
-        }
+        //         break;
+        // }
 
-        switch (enemyPointFire)
-        {
-            case 1:
+        // switch (enemyPointFire)
+        // {
+        //     case 1:
 
-                enemyUiPoints[0].SetActive(true);
+        //         enemyUiPoints[0].SetActive(true);
 
-                break;
+        //         break;
 
-            case 2:
+        //     case 2:
 
-                enemyUiPoints[1].SetActive(true);
+        //         enemyUiPoints[1].SetActive(true);
 
-                break;
+        //         break;
 
-            case 3:
+        //     case 3:
 
-                enemyUiPoints[2].SetActive(true);
+        //         enemyUiPoints[2].SetActive(true);
 
-                break;
-        }
-        switch (enemyPointWater)
-        {
-            case 1:
+        //         break;
+        // }
+        // switch (enemyPointWater)
+        // {
+        //     case 1:
 
-                enemyUiPoints[3].SetActive(true);
+        //         enemyUiPoints[3].SetActive(true);
 
-                break;
+        //         break;
 
-            case 2:
+        //     case 2:
 
-                enemyUiPoints[4].SetActive(true);
+        //         enemyUiPoints[4].SetActive(true);
 
-                break;
+        //         break;
 
-            case 3:
+        //     case 3:
 
-                enemyUiPoints[5].SetActive(true);
+        //         enemyUiPoints[5].SetActive(true);
 
-                break;
-        }
-        switch (enemyPointPlant)
-        {
-            case 1:
+        //         break;
+        // }
+        // switch (enemyPointPlant)
+        // {
+        //     case 1:
 
-                enemyUiPoints[6].SetActive(true);
+        //         enemyUiPoints[6].SetActive(true);
 
-                break;
+        //         break;
 
-            case 2:
+        //     case 2:
 
-                enemyUiPoints[7].SetActive(true);
+        //         enemyUiPoints[7].SetActive(true);
 
-                break;
+        //         break;
 
-            case 3:
+        //     case 3:
 
-                enemyUiPoints[8].SetActive(true);
+        //         enemyUiPoints[8].SetActive(true);
 
-                break;
-        }
+        //         break;
+        // }
 
         //playerText.text = ("P = " + playerPoints);
         //EnemyText.text = ("E = " + enemyPoints);
