@@ -18,7 +18,7 @@ public class UI : MonoBehaviour
     //public TMP_Text EnemyText;
 
     public GameObject battleEndScreen;
-    public TMP_Text battleResulttext;
+    //public TMP_Text battleResulttext;
 
     //VALUES
     public int playerPointFire = 0;
@@ -40,6 +40,8 @@ public class UI : MonoBehaviour
 
     public GameObject pauseScreen;
 
+    public Image victoryOrLoss;
+
     private void Awake()
     {
         instance = this;
@@ -53,8 +55,6 @@ public class UI : MonoBehaviour
         {
             PauseUnpause();
         }
-
-        UnityEngine.Debug.Log(playerPointPlant);
     }
     public void UpdatePointsUI()
     {
@@ -74,131 +74,6 @@ public class UI : MonoBehaviour
         enemyPointWaterText.text = (enemyPointWater.ToString());
         enemyPointPlantText.text = (enemyPointPlant.ToString());
 
-        //Old Ui with many objects 
-        // switch(playerPointFire)
-        // {
-        //     case 1:
-
-        //         playerUiPoints[0].SetActive(true);
-                
-        //         break;
-
-        //     case 2:
-
-        //         playerUiPoints[1].SetActive(true);
-
-        //         break;
-
-        //     case 3:
-
-        //         playerUiPoints[2].SetActive(true);
-
-        //         break;
-        // }
-        // switch (playerPointWater)
-        // {
-        //     case 1:
-
-        //         playerUiPoints[3].SetActive(true);
-
-        //         break;
-
-        //     case 2:
-
-        //         playerUiPoints[4].SetActive(true);
-
-        //         break;
-
-        //     case 3:
-
-        //         playerUiPoints[5].SetActive(true);
-
-        //         break;
-        // }
-        // switch (playerPointPlant)
-        // {
-        //     case 1:
-
-        //         playerUiPoints[6].SetActive(true);
-
-        //         break;
-
-        //     case 2:
-
-        //         playerUiPoints[7].SetActive(true);
-
-        //         break;
-
-        //     case 3:
-
-        //         playerUiPoints[8].SetActive(true);
-
-        //         break;
-        // }
-
-        // switch (enemyPointFire)
-        // {
-        //     case 1:
-
-        //         enemyUiPoints[0].SetActive(true);
-
-        //         break;
-
-        //     case 2:
-
-        //         enemyUiPoints[1].SetActive(true);
-
-        //         break;
-
-        //     case 3:
-
-        //         enemyUiPoints[2].SetActive(true);
-
-        //         break;
-        // }
-        // switch (enemyPointWater)
-        // {
-        //     case 1:
-
-        //         enemyUiPoints[3].SetActive(true);
-
-        //         break;
-
-        //     case 2:
-
-        //         enemyUiPoints[4].SetActive(true);
-
-        //         break;
-
-        //     case 3:
-
-        //         enemyUiPoints[5].SetActive(true);
-
-        //         break;
-        // }
-        // switch (enemyPointPlant)
-        // {
-        //     case 1:
-
-        //         enemyUiPoints[6].SetActive(true);
-
-        //         break;
-
-        //     case 2:
-
-        //         enemyUiPoints[7].SetActive(true);
-
-        //         break;
-
-        //     case 3:
-
-        //         enemyUiPoints[8].SetActive(true);
-
-        //         break;
-        // }
-
-        //playerText.text = ("P = " + playerPoints);
-        //EnemyText.text = ("E = " + enemyPoints);
     }
 
     public void MainMenu() 

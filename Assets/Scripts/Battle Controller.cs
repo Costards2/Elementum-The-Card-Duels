@@ -31,8 +31,8 @@ public class BattleController : MonoBehaviour
     private bool enemyWon;
 
     public bool battleEnded;
-    public AudioClip[] audioClips = new AudioClip[2];
-    public AudioSource audioSource;
+
+    public Sprite[] endScreens = new Sprite[2];
 
     private void Awake()
     {
@@ -49,7 +49,7 @@ public class BattleController : MonoBehaviour
         canAttackAgain = true;
         DeckController.instance.DrawMutipleCards(startingCardsAmount);
 
-        audioSource = GetComponent<AudioSource>();
+        AudioManager.instance.playBattleMusic();
     }
 
     void Update()
@@ -169,11 +169,11 @@ public class BattleController : MonoBehaviour
 
         if(playerWon)
         {
-            UI.instance.battleResulttext.text = "YOU WON";
+            UI.instance.victoryOrLoss.sprite = endScreens[0];
         }
-        else
+        else if(enemyWon)
         {
-            UI.instance.battleResulttext.text = "YOU LOST";
+            UI.instance.victoryOrLoss.sprite = endScreens[1];
         }
 
         StartCoroutine(EmpityHand());
@@ -196,11 +196,11 @@ public class BattleController : MonoBehaviour
 
         if(playerWon)
         {
-            audioSource.PlayOneShot(audioClips[0]);
+            AudioManager.instance.playVictoryMusic();
         }
         else
         {
-            audioSource.PlayOneShot(audioClips[1]);
+           AudioManager.instance.playDefeatMusic();
         }
     }
 }

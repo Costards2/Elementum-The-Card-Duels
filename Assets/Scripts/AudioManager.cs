@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
         }
-        else
+        else if(instance != this)
         {
             Destroy(this);
         }
@@ -23,6 +23,10 @@ public class AudioManager : MonoBehaviour
     
     public AudioSource menuMusic;
     public AudioSource battleMusic;
+
+    public AudioSource victoryMusic;
+    public AudioSource defeatMusic;
+
     public AudioSource[] backgroundTracks; 
 
     void Start()
@@ -60,6 +64,23 @@ public class AudioManager : MonoBehaviour
         {
             StopMusic();
             battleMusic.Play();
+        }
+    }
+
+    public void playVictoryMusic() 
+    {
+        if(victoryMusic.isPlaying == false)
+        {
+            StopMusic();
+            victoryMusic.Play();
+        }
+    }
+    public void playDefeatMusic() 
+    {
+        if(defeatMusic.isPlaying == false)
+        {
+            StopMusic();
+            defeatMusic.Play();
         }
     }
 }
