@@ -4,8 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using System.Diagnostics;
 using System;
+using Unity.VisualScripting;
 
 public class UI : MonoBehaviour
 {
@@ -43,6 +45,7 @@ public class UI : MonoBehaviour
     public Image victoryOrLoss;
 
     public Slider volumeSlider;
+    private string allVolume = "MasterVolume";
 
     private void Awake()
     {
@@ -51,6 +54,21 @@ public class UI : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    void Start()
+    {
+        float currentVolume;
+        
+        if ( AudioManager.instance.audioMixer.GetFloat(allVolume, out currentVolume))
+        {
+            volumeSlider.value = Mathf.Pow(10, currentVolume / 20);
+        }
+        else
+        {
+            UnityEngine.Debug.LogError($"Parameter {allVolume} not found in AudioMixer");
+        }
+        volumeSlider.onValueChanged.AddListener(SetVolumeFromSlider);
+    }
+    
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -103,8 +121,14 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void VolumeChange()
+    public void SetVolume(float volume)
     {
-        //AudioManager.instance.audioMixer.
+        float dB = Mathf.Log10(volume) * 20;
+        AudioManager.instance.audioMixer.SetFloat(allVolume, dB);
+    }
+
+    public void SetVolumeFromSlider(float volume)
+    {
+        SetVolume(volume);
     }
 }
