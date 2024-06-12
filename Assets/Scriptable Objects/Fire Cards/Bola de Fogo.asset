@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bola de Fogo
   m_EditorClassIdentifier: 
   selectedType: 0
-  attackPower: 1
+  attackPower: 3
   cardName: Bola de Fogo
   cardSprite: {fileID: 2100000, guid: 71559b476e65f624b83b59555bce200e, type: 2}
   cardDissolve: {fileID: 2100000, guid: 72004951b2a0664429e64bba9b4cd127, type: 2}

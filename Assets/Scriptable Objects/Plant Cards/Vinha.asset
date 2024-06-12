@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vinha
   m_EditorClassIdentifier: 
   selectedType: 2
-  attackPower: 3
+  attackPower: 2
   cardName: Vinha
   cardSprite: {fileID: 2100000, guid: 4ed4fd203bf91f1439812f9cb05aecd4, type: 2}
   cardDissolve: {fileID: 2100000, guid: a8fc922dbf8355e40905b80f6580247c, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Incinerado
   m_EditorClassIdentifier: 
   selectedType: 0
-  attackPower: 3
+  attackPower: 4
   cardName: Incinerado
   cardSprite: {fileID: 2100000, guid: 918971481f9c01c4888121cd1adfa6f9, type: 2}
   cardDissolve: {fileID: 2100000, guid: 72004951b2a0664429e64bba9b4cd127, type: 2}
