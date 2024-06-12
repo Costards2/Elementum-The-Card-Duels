@@ -285,7 +285,7 @@ public class Card : MonoBehaviour
             }
            else
            {
-                Debug.Log("Tie");
+                AudioManager.instance.playTieMusic();
            }
         }
         else if(selectedType != element) 

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    public AudioMixer audioMixer;
 
     void Awake()
     {
@@ -26,6 +28,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource victoryMusic;
     public AudioSource defeatMusic;
+    public AudioSource tieMusic;
 
     public AudioSource[] backgroundTracks; 
 
@@ -81,6 +84,14 @@ public class AudioManager : MonoBehaviour
         {
             StopMusic();
             defeatMusic.Play();
+        }
+    }
+
+     public void playTieMusic() 
+    {
+        if(tieMusic.isPlaying == false)
+        {
+            tieMusic.PlayDelayed(1.25f);
         }
     }
 }

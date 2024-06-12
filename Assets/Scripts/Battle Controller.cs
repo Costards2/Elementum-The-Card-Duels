@@ -51,17 +51,7 @@ public class BattleController : MonoBehaviour
 
         AudioManager.instance.playBattleMusic();
     }
-
-    void Update()
-    {
-        //if(Input.GetKeyDown(KeyCode.U))
-        //{
-        //    AdvanceTurn();
-        //}
-
-        //Debug.Log(currentFase);
-    }
-
+    
     public void AdvanceTurn()
     {
         if (!battleEnded)
@@ -145,12 +135,12 @@ public class BattleController : MonoBehaviour
 
     public void CheckPoints()
     {
-        if ((playerPointFire == 3 || playerPointWater == 3 || playerPointPlant == 3) || (playerPointFire > 0  && playerPointWater > 0 && playerPointPlant >0))
+        if ((playerPointFire == 3 || playerPointWater == 3 || playerPointPlant == 3) /*|| (playerPointFire > 0  && playerPointWater > 0 && playerPointPlant >0)*/)
         {
             playerWon = true;
             EndBattle();
         }
-        else if ((enemyPointFire == 3 || enemyPointWater == 3 || enemyPointPlant == 3) || (enemyPointFire > 0 && enemyPointWater > 0 && enemyPointPlant > 0))
+        else if ((enemyPointFire == 3 || enemyPointWater == 3 || enemyPointPlant == 3) /*|| (enemyPointFire > 0 && enemyPointWater > 0 && enemyPointPlant > 0)*/)
         {
             enemyWon = true;
             EndBattle();

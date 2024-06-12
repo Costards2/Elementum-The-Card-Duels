@@ -42,6 +42,8 @@ public class UI : MonoBehaviour
 
     public Image victoryOrLoss;
 
+    public Slider volumeSlider;
+
     private void Awake()
     {
         instance = this;
@@ -55,6 +57,7 @@ public class UI : MonoBehaviour
         {
             PauseUnpause();
         }
+
     }
     public void UpdatePointsUI()
     {
@@ -98,5 +101,10 @@ public class UI : MonoBehaviour
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
         }
+    }
+
+    public void VolumeChange()
+    {
+        //AudioManager.instance.audioMixer.
     }
 }

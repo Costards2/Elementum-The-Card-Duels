@@ -58,6 +58,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ff262131f1eb1c43a5bf60c66df146f, type: 2}
   - {fileID: 11400000, guid: 2d7d4daddf57e504b859480ea1adea5a, type: 2}
   - {fileID: 11400000, guid: f1b2f15e3f869e84986fb48ac0d7b892, type: 2}
+  - {fileID: 11400000, guid: 40ea72aabc505d14a8755da656df6ae1, type: 2}
+  - {fileID: 11400000, guid: 77236ea802020d9488c6f56bb244241f, type: 2}
+  - {fileID: 11400000, guid: fa7e393d475d3254fb7ea3b1776a40ec, type: 2}
+  - {fileID: 11400000, guid: b2e9b8b03ab599245a8a83474a317fe0, type: 2}
+  - {fileID: 11400000, guid: e3dff3a5379d76f4881cd0bc400e2f7b, type: 2}
+  - {fileID: 11400000, guid: b5c9e2a9b8f27cf4abe484e2e87f6e82, type: 2}
   startHandSize: 0
   cardToSpawn: {fileID: 818932004612275409, guid: 87bef10a4fa231641ad025ffbfbe88f0,
     type: 3}
