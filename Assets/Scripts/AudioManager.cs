@@ -141,10 +141,10 @@ public class AudioManager : MonoBehaviour
 
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
-            source.volume = Mathf.Lerp(startVolume, 0.4f, t / fadeDuration);
+            source.volume = Mathf.Lerp(startVolume, 0.3f, t / fadeDuration);
             yield return null;
         }
 
-        source.volume = 0.4f;
+        source.volume = 0.3f;
     }
 }

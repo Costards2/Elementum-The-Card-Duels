@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
     private string allVolume = "MasterVolume";
     public GameObject configScreen;
 
+    private Scene activeScene;  
+
     void Awake()
     {
         Time.timeScale = 1;
@@ -20,19 +22,24 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.instance.playMenuMusic();
+        activeScene = SceneManager.GetActiveScene();
 
-         float currentVolume;
-        
-        if ( AudioManager.instance.audioMixer.GetFloat(allVolume, out currentVolume))
+        if( activeScene.name == "Main Menu")
         {
-            volumeSlider.value = Mathf.Pow(10, currentVolume / 20);
+            AudioManager.instance.playMenuMusic();
+
+            float currentVolume;
+            
+            if ( AudioManager.instance.audioMixer.GetFloat(allVolume, out currentVolume))
+            {
+                volumeSlider.value = Mathf.Pow(10, currentVolume / 20);
+            }
+            else
+            {
+                UnityEngine.Debug.LogError($"Parameter {allVolume} not found in AudioMixer");
+            }
+            volumeSlider.onValueChanged.AddListener(SetVolumeFromSlider);
         }
-        else
-        {
-            UnityEngine.Debug.LogError($"Parameter {allVolume} not found in AudioMixer");
-        }
-        volumeSlider.onValueChanged.AddListener(SetVolumeFromSlider);
     }
   
     private void Update()
@@ -63,7 +70,11 @@ public class MenuManager : MonoBehaviour
 
     public void Pular()
     {
-        AudioManager.instance.menuMusic.volume = 0.4f;
+        if( activeScene.name == "Main Menu")
+        {
+            AudioManager.instance.menuMusic.volume = 0.4f;
+        }
+       
         SceneManager.LoadScene("Main Menu");
     }
 
