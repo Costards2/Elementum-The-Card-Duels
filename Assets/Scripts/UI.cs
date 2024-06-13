@@ -82,6 +82,7 @@ public class UI : MonoBehaviour
         }
 
     }
+    
     public void UpdatePointsUI()
     {
         playerPointFire = BattleController.instance.playerPointFire;
