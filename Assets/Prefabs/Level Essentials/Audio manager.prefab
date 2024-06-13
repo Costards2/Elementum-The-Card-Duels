@@ -614,7 +614,7 @@ MonoBehaviour:
   - {fileID: 689459537455176824}
   tieMusic: {fileID: 6312234835203832021}
   backgroundTracks: []
-  fadeDuration: 0.75
+  fadeDuration: 1
 --- !u!1 &4715699947770403395
 GameObject:
   m_ObjectHideFlags: 0

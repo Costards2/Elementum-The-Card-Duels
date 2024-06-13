@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource[] backgroundTracks; 
 
-    public float fadeDuration = 0.75f;
+    public float fadeDuration = 0.1f;
 
     void Awake()
     {

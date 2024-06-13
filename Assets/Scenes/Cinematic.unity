@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953256ae85c293a4f8ccd955bec6f9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 0}
+  configScreen: {fileID: 0}
 --- !u!4 &250242604
 Transform:
   m_ObjectHideFlags: 0
@@ -196,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac7e0f4baa136a45bd2dc97b0e9ac91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoTime: 22
+  videoTime: 43
 --- !u!4 &379265638
 Transform:
   m_ObjectHideFlags: 0
@@ -391,7 +393,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873878871}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5c62eb8e761f8234186464b05d1c3da9, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: cfbeaba2aba94e44980774a2412a15b1, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -405,12 +407,14 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0

@@ -43,8 +43,8 @@ public class DeckController : MonoBehaviour
 
     public void DrawnCardToHand()
     {
-        //Restart the Deck
-        if(activeCards.Count == 0)
+
+        if(activeCards.Count == 0 && BattleController.instance.turns < 18) //Bring More Cards if the player ran out of them (I will probably remove this)
         {
             SetUpDeck();
         }

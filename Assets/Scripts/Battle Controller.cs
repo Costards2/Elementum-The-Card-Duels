@@ -29,10 +29,15 @@ public class BattleController : MonoBehaviour
 
     private bool playerWon;
     private bool enemyWon;
+    private bool tie;
 
     public bool battleEnded;
 
-    public Sprite[] endScreens = new Sprite[2];
+    public Sprite[] endScreens = new Sprite[3];
+
+    public int turns;
+    private int playerPoints;
+    private int enemyPoints;
 
     private void Awake()
     {
@@ -44,6 +49,7 @@ public class BattleController : MonoBehaviour
     {
         playerWon = false;
         enemyWon = false;
+        tie = false;
 
         battleEnded = false;
 
@@ -51,6 +57,8 @@ public class BattleController : MonoBehaviour
         DeckController.instance.DrawMutipleCards(startingCardsAmount);
 
         AudioManager.instance.playBattleMusic();
+
+        turns = 0;
     }
     
     public void AdvanceTurn()
@@ -68,9 +76,10 @@ public class BattleController : MonoBehaviour
             {
                 case TurnOrder.playerActive:
 
+                    //Make the player place the card and dont bug the fases
                     CardPointController.instace.playerCardPoint[0].activeCard = null;
                     CardPointController.instace.enemyCardPoint[0].activeCard = null;
-                    
+        
                     if(!battleEnded)
                     {
                         StartCoroutine(CardDrawDelay());//or you can use: DeckController.instance.DrawnCardToHand();
@@ -89,6 +98,8 @@ public class BattleController : MonoBehaviour
                     canAttackAgain = false;
                     StartCoroutine(CardAttackDelay());
                     UI.instance.UpdatePointsUI();
+
+                    turns++;
 
                     break;
 
@@ -136,14 +147,37 @@ public class BattleController : MonoBehaviour
 
     public void CheckPoints()
     {
-        if ((playerPointFire == 3 || playerPointWater == 3 || playerPointPlant == 3) /*|| (playerPointFire > 0  && playerPointWater > 0 && playerPointPlant >0)*/)
+        if(turns < 18)
         {
-            playerWon = true;
-            EndBattle();
+            if ((playerPointFire == 3 || playerPointWater == 3 || playerPointPlant == 3) /*|| (playerPointFire > 0  && playerPointWater > 0 && playerPointPlant >0)*/)
+            {
+                playerWon = true;
+                EndBattle();
+            }
+            else if ((enemyPointFire == 3 || enemyPointWater == 3 || enemyPointPlant == 3) /*|| (enemyPointFire > 0 && enemyPointWater > 0 && enemyPointPlant > 0)*/)
+            {
+                enemyWon = true;
+                EndBattle();
+            }
         }
-        else if ((enemyPointFire == 3 || enemyPointWater == 3 || enemyPointPlant == 3) /*|| (enemyPointFire > 0 && enemyPointWater > 0 && enemyPointPlant > 0)*/)
+        else if (turns >= 18)
         {
-            enemyWon = true;
+            playerPoints = playerPointFire + playerPointPlant + playerPointWater;
+            enemyPoints = enemyPointFire + enemyPointPlant + enemyPointWater;
+
+            if(playerPoints > enemyPoints)
+            {
+                playerWon = true;
+            } 
+            else if(playerPoints < enemyPoints)
+            {
+                enemyWon = true;
+            }
+            else if (playerPoints == enemyPoints)
+            {
+                tie = true;
+            }
+            
             EndBattle();
         }
     }
@@ -163,6 +197,10 @@ public class BattleController : MonoBehaviour
             UI.instance.victoryOrLoss.sprite = endScreens[0];
         }
         else if(enemyWon)
+        {
+            UI.instance.victoryOrLoss.sprite = endScreens[1];
+        }
+        else if(tie)
         {
             UI.instance.victoryOrLoss.sprite = endScreens[1];
         }

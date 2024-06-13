@@ -55,9 +55,8 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator EnemyActionCourotine()
     {
-        if(activeCards.Count == 0)
+        if(activeCards.Count == 0 && BattleController.instance.turns < 18) //Bring More Cards if the enemy ran out of them (I will probably remove this)
         {
-            //Bring More Cards if the enemy ran out of them (I will probably remove this)
             SetUpDeck();
         }
 

@@ -63,6 +63,7 @@ public class MenuManager : MonoBehaviour
 
     public void Pular()
     {
+        AudioManager.instance.menuMusic.volume = 0.4f;
         SceneManager.LoadScene("Main Menu");
     }
 
@@ -74,6 +75,12 @@ public class MenuManager : MonoBehaviour
     public void Voltar()
     {
         
+    }
+
+    public void Secret()
+    {
+        AudioManager.instance.menuMusic.volume = 0;
+        SceneManager.LoadScene("Cinematic Secreta");
     }
 
     public void Sair()
