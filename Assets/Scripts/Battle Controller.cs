@@ -36,6 +36,7 @@ public class BattleController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         instance = this;
     }
 
@@ -153,7 +154,7 @@ public class BattleController : MonoBehaviour
         CardPointController.instace.PlayerAttack();
     }
 
-    void EndBattle()
+    private void EndBattle()
     {
         battleEnded = true;
 

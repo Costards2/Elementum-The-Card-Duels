@@ -8,6 +8,7 @@ using UnityEngine.Audio;
 using System.Diagnostics;
 using System;
 using Unity.VisualScripting;
+using Debug = UnityEngine.Debug;
 
 public class UI : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class UI : MonoBehaviour
     public Slider volumeSlider;
     private string allVolume = "MasterVolume";
 
+    private float elapsedTime;
+
     private void Awake()
     {
         instance = this;
@@ -71,7 +74,9 @@ public class UI : MonoBehaviour
     
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        elapsedTime += Time.deltaTime; 
+
+        if(Input.GetKeyDown(KeyCode.Escape) && !battleEndScreen.activeSelf && elapsedTime> 1)
         {
             PauseUnpause();
         }
@@ -99,7 +104,7 @@ public class UI : MonoBehaviour
 
     public void MainMenu() 
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Main Menu");   
     }
 
     public void ReStartLevel() 
@@ -123,6 +128,11 @@ public class UI : MonoBehaviour
 
     public void SetVolume(float volume)
     {
+        if (volume <= 0.0001f)
+        {
+            volume = 0.0001f; 
+        }
+
         float dB = Mathf.Log10(volume) * 20;
         AudioManager.instance.audioMixer.SetFloat(allVolume, dB);
     }

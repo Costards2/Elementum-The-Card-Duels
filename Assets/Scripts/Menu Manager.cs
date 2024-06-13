@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager instance;
+
+    void Awake()
+    {
+        Time.timeScale = 1;
+        instance = this;
+    }
+
     void Start()
     {
-        instance = this;
         AudioManager.instance.playMenuMusic();
     }
+  
     public void MainMenu()
     {
         SceneManager.LoadScene("Main Menu");
@@ -18,12 +25,12 @@ public class MenuManager : MonoBehaviour
 
     public void JogarEasy()
     {
-        SceneManager.LoadScene("Gameplay 1");
+        SceneManager.LoadScene("Rato");
     }
 
      public void JogarBasic()
     {
-        SceneManager.LoadScene("Gameplay 2");
+        SceneManager.LoadScene("Bruxa");
     }
 
     public void Pular()
