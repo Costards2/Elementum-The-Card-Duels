@@ -16,7 +16,7 @@ PlayerSettings:
   productName: Elementum
   defaultCursor: {fileID: 2800000, guid: 27855ee9abc17b34cb5fb35fe31fd0bc, type: 3}
   cursorHotspot: {x: 40, y: 35}
-  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -43,6 +43,10 @@ PlayerSettings:
   - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
     duration: 2
   - logo: {fileID: 21300000, guid: d34e09a763acc6a48b1d5ce1316ac682, type: 3}
+    duration: 2
+  - logo: {fileID: 21300000, guid: 360ffb77143e87140a021870a27e9c50, type: 3}
+    duration: 2
+  - logo: {fileID: 21300000, guid: a0c98f0f505932a49bbae2e9616c213a, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
