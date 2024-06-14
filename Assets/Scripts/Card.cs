@@ -57,6 +57,7 @@ public class Card : MonoBehaviour
     public bool alive;
 
     public Animator dissolveAnimator;
+
     void Start()
     {
         //Making the enemy card stay on Its position
