@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource[] backgroundTracks; 
 
-    public float fadeDuration = 0.1f;
+    public float fadeDuration = 1f;
 
     void Awake()
     {
@@ -68,7 +68,7 @@ public class AudioManager : MonoBehaviour
             StopMusic();
             StartCoroutine(FadeOut(battleMusic));
             StartCoroutine(FadeIn(menuMusic));
-            menuMusic.Play();
+            //menuMusic.Play();
         }
     }
 
@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
             StopMusic();
             StartCoroutine(FadeOut(menuMusic));
             StartCoroutine(FadeIn(battleMusic));
-            battleMusic.Play();
+            //battleMusic.Play();
         }
     }
 
