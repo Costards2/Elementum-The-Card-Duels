@@ -63,9 +63,19 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Rato");
     }
 
-     public void JogarBasic()
+    public void JogarBasic()
     {
         SceneManager.LoadScene("Bruxa");
+    }
+
+    public void JogarHard()
+    {
+        SceneManager.LoadScene("Taurin");
+    }
+
+    public void JogarAilu()
+    {
+        SceneManager.LoadScene("Ailu");
     }
 
     public void Pular()

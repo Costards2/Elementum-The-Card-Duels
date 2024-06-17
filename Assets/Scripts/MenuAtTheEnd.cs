@@ -5,16 +5,17 @@ using UnityEngine;
 public class MenuAtTheEnd : MonoBehaviour
 {
     public float videoTime;
-    public GameObject text;
     public bool secretCinematic;
 
     void Start()
     {
-        StartCoroutine(MainMenu());
-
         if(secretCinematic)
         {
-            StartCoroutine(PlayNextPatch());
+            StartCoroutine(Ailu());
+        }
+        else
+        {
+            StartCoroutine(MainMenu());
         }
     }
 
@@ -25,10 +26,10 @@ public class MenuAtTheEnd : MonoBehaviour
         MenuManager.instance.MainMenu();
     }
 
-    IEnumerator PlayNextPatch()
+    IEnumerator Ailu()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(videoTime);
 
-        text.SetActive(true);
+        MenuManager.instance.JogarAilu();
     }
 }

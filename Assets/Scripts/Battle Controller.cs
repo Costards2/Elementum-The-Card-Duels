@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 
 public class BattleController : MonoBehaviour
 {
@@ -39,6 +40,9 @@ public class BattleController : MonoBehaviour
     private int playerPoints;
     private int enemyPoints;
 
+    private Scene currentScene;
+    private string sceneName;
+
     private void Awake()
     {
         Time.timeScale = 1;
@@ -47,6 +51,8 @@ public class BattleController : MonoBehaviour
 
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
         playerWon = false;
         enemyWon = false;
         tie = false;
@@ -221,7 +227,14 @@ public class BattleController : MonoBehaviour
     {
         yield return new WaitForSeconds(3.25f);
 
-        UI.instance.battleEndScreen.SetActive(true);
+        if(sceneName == "Taurin" && playerWon)
+        {
+            FinalScene.instance.FinalSceneActivate();
+        }
+        else
+        {
+            UI.instance.battleEndScreen.SetActive(true);
+        }
 
         if(playerWon)
         {

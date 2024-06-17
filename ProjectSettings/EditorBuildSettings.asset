@@ -12,11 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 2758c8acf277fd54082b4ba08c4480ca
   - enabled: 1
-    path: Assets/Scenes/Rato.unity
+    path: Assets/Scenes/Oponets/Rato.unity
     guid: ebd9f8a97ddb2ed4f87fad5c1b43744d
   - enabled: 1
-    path: Assets/Scenes/Bruxa.unity
+    path: Assets/Scenes/Oponets/Bruxa.unity
     guid: 7bb73270e57ffdf45b74dbd081f6976f
+  - enabled: 1
+    path: Assets/Scenes/Oponets/Taurin.unity
+    guid: 459b2a4f541f8f2408df6e6d54ede935
+  - enabled: 1
+    path: Assets/Scenes/Oponets/Ailu.unity
+    guid: 59d135fdb5ddea04b84a83bd729a7ec0
   - enabled: 1
     path: Assets/Scenes/Cinematic Secreta.unity
     guid: 20bbebf161a5b13448e73a6f56fcfc55

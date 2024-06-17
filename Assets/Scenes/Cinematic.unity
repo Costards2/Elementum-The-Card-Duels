@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoTime: 43
+  secretCinematic: 0
 --- !u!4 &379265638
 Transform:
   m_ObjectHideFlags: 0
@@ -393,7 +394,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873878871}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: cfbeaba2aba94e44980774a2412a15b1, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d214e0223024ca04b8ec95216483e0c3, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
