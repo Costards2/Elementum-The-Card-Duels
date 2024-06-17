@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Oponets/Ailu.unity
     guid: 59d135fdb5ddea04b84a83bd729a7ec0
   - enabled: 1
+    path: Assets/Scenes/Cinematic Vitoria.unity
+    guid: b0106c8ad64bd944387ff18f3541cd53
+  - enabled: 1
     path: Assets/Scenes/Cinematic Secreta.unity
     guid: 20bbebf161a5b13448e73a6f56fcfc55
   m_configObjects: {}
