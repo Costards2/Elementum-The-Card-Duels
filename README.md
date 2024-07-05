@@ -2,7 +2,7 @@
 
 # EN
 
-Ailurudae is a platformer that seeks to bring something more challenging to the audience who enjoys this style of game, with more combat and challenges during the levels. It was producced for the subject "Praticas Integradas 2" during my 3rd semester of college.
+Elementum: The Card Duels” é um card game de estratégia single-player para computador, publicado no itch.io, focado para jovens adultos que acontece em uma taverna em um mundo fantasioso, onde o jogador passa por um torneio de Card Game, tendo como prêmio um ano de cerveja grátis.
 
 Game Trailer: https://www.youtube.com/watch?v=lLs8jkKyYaA
 
@@ -12,7 +12,7 @@ Game Link: https://costards2.itch.io/elementum-the-card-duels
 
 # PT
 
-Ailurudae é um jogo estilo plataforma que busca trazer algo mais desafiador ao público ligado a esse estilo, com mais combate e desafios durante as fases. Ele foi feito na matéria de Práticas Integradas 2 durante o meu 3° semestre da faculdade.
+Elementum: The Card Duels” é um card game de estratégia single-player para computador, publicado no itch.io, focado para jovens adultos que acontece em uma taverna em um mundo fantasioso, onde o jogador passa por um torneio de Card Game, tendo como prêmio um ano de cerveja grátis.
 
 Trailer Do jogo: https://www.youtube.com/watch?v=lLs8jkKyYaA
 
